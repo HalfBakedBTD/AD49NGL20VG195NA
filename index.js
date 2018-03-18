@@ -11,31 +11,19 @@ function ad(bot, message) {
    let adschannel = message.guild.channels.find(`name`, "ads");
    message.channel.createInvite()
     	.then(invite => {
-	    bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`Join **${message.guild.name}**!\n\t${message.guild.name} is a server that has a lot of ${message.guild.name}ey stuff!\n\n**-----------------------------------------------------------**\n 🔗 https://www.discord.gg/${invite.code} 🔗\n ID: ${message.author.id}\n\n**-----------------------------------------------------------**\n[Type \`^help\` for help and a link to join the official server!]\n\`\`\`AdBot: Make a #adbot-updates channel to see all the new features!\nNewest Update: ^ad anables auto ads.\`\`\``));
+	    bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`**${message.guild.name}** has been bumped.\n\nJOIN **---** 🔗 \`https://www.discord.gg/${invite.code}\` 🔗\n\nUser ID **---** ${message.author.id}`));
         });
- setTimeout(() => ad(bot, message), 15*60000);
-}
-
-function adcus(bot, message, args) {
-   
-   const sayMessage = args.join(" ");
-   let adschannel = message.guild.channels.find(`name`, "ads");
-    message.delete().catch(O_o=>{}); 
-    message.channel.createInvite()
-    	.then(invite => {
-	    bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`**[------------------ ${message.guild.name} ------------------]**\n  ${sayMessage}\n\n**[------------------ ${message.guild.name} ------------------]**\nLINK: https://www.discord.gg/${invite.code}\nID: ${message.author.id}\n*[Type \`^help\` for info and add the bot to ur server!]*\n\`\`\`AdBot: Make a #adbot-updates channel to see all the new features!\`\`\``));
-        });
- setTimeout(() => adcus(bot, message), 15*60000);
-}
-    
+ setTimeout(() => ad(bot, message), 5*60000);
+}  
 
 bot.on("ready", async () => {
     console.log(`${bot.user.username} is online!`);
+    bot.channels.filter(c => c.name === 'adbot_updates').forEach(channel => channel.send(`**AdBot** has just been **restarted**.`)
 });
 
 bot.on('guildMemberAdd', member => {
   // Send the message to a designated channel on a server:
-  member.send(`**${member}**, you have just joined a guild I am in!\n\nPlease type \`^help\` to know what I do!\nIf you like me, add me to your server! (\`^invite\` and I will send you a link!)`);
+  member.send(`Welcome to the server **${member}**!`);
   const channel = member.guild.channels.find('name', 'welcome');
   // Do nothing if the channel wasn't found on this server
   if (!channel) return;
@@ -138,12 +126,9 @@ bot.on("message", async message => {
     message.channel.send(`<@${message.author.id}>, I am servers message:\n\t${sayMessage}`);
     bot.channels.filter(c => c.name === 'adbot-updates').forEach(channel => channel.send(`**[------------------ UPDATE ------------------]**\n ${sayMessage}\n\n**[------------------ UPDATE ------------------]**\n`));
   } 
-  if (message.content.startsWith('^custom^ad')) {
-    message.channel.send(`<@${message.author.id}>, the command \`^custom^ad\` has been changed to \`^cutom-ad\`. Sorry for if this causes you any problems.`)
-  }
   if (message.content === '^help') {
     message.channel.send("DMed you! Check it out for all the info!")
-    return message.author.send("**My Commands:** *all commands start with `^` prefix.*\n\t`help` shows this message.\n\t`test` tests to see if the bot is properly set up.\n\t`info` shows bot info.\n\t`ad` bumps your channel to the top of the list.\n\t`^custom-ad` lets you advertise ANYTHING! Use: `^custom-ad <advertisement>`\n\n**JOIN:** [*official discord]* https://discord.gg/4T22QKn")
+    return message.author.send("**My Commands:** *all commands start with `^` prefix.*\n\t`help` shows this message.")
   }
   if (message.content === '^invite') {
     message.channel.send("I DMed you a link to add me to your server!")
@@ -154,19 +139,9 @@ bot.on("message", async message => {
     let adschannel = message.guild.channels.find(`name`, "ads");
     if(!adschannel) return message.channel.send("You don't have a **#ads** channel in the server! Please create one then type `^test`!");
     message.channel.send("```- Checkpoint 1: Basic AdBot command channel added. Next checkpoint allows the Big Ad Button command which can be activated once every 10 minutes.```")
-    let adsbutchannel = message.guild.channels.find(`name`, "ad-button");
-    if(!adsbutchannel) return message.channel.send("You don't have a **#ad-button** channel in the server! Please create one then type `^test`!");
-    message.channel.send("```- Checkpoint 2: AdBot advertising channels added. Next checkpoint allows you to see AdBot updates!```")
-    let upchannel = message.guild.channels.find(`name`, "adbot-updates");
-    if(!upchannel) return message.channel.send("You don't have a **#adbot-updates** channel in the server! Please create one then type `^test`!");
-    message.channel.send("```- Checkpoint 3: AdBot updates channels added. Next checkpoint allows AdBot to welcome new users!```")
-    let welchannel = message.guild.channels.find(`name`, "welcome");
-    if(!welchannel) return message.channel.send("You don't have a **#welcome** channel in the server! Please create one then type `^test`!");
-    message.channel.send("```- Checkpoint 4: All channels that AdBot needs to run have been set up!```")
-    message.channel.send("**__ALL SYSTEMS OPERATIONAL!__** In other words you did everything right and CussOut can run properly!")
+    message.channel.send("**__ALL SYSTEMS OPERATIONAL!__** In other words you did everything right and AdBot can run properly!")
   }
   if (message.content === '^ad') {
-    if (message.author.id === '314560720308142082') return message.channel.send("You cant use this, you're banned.");
     let adschannel = message.guild.channels.find(`name`, "ads");
     if(!adschannel) return message.channel.send("The bot is not properly set up for this command! Please type `^test`.");
 		if (message.author.id !== '346687165868015616') {
@@ -203,8 +178,12 @@ bot.on("message", async message => {
 			if (chratis_talked_users.has(message.author.id)) return message.reply("You have to wait before using this command again.\n*[10 minute cooldown]*");
 		}
     const sayMessage = args.join(" ");
+    message.delete().catch(O_o=>{}); 
+    message.channel.createInvite()
+    	.then(invite => {
+	    bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`**${message.author.username}** just custom bumped!\n\nLINK **---** ${sayMessage}`));
+        });
     message.channel.send(`<@${message.author.id}>, Auto Ads enabled with message:\n\`\`\`${sayMessage}\`\`\``);
-    adcus(bot, message, args)
     chratis_talked_users.add(message.author.id);
     setTimeout(() => {
       chratis_talked_users.delete(message.author.id);
