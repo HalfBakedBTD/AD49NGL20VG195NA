@@ -11,7 +11,7 @@ function ad(bot, message) {
    let adschannel = message.guild.channels.find(`name`, "ads");
    message.channel.createInvite()
     	.then(invite => {
-	    bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`**${message.guild.name}** has been bumped.\n\nJOIN **---** 🔗 \`https://www.discord.gg/${invite.code}\` 🔗\n\nUser ID **---** ${message.author.id}`));
+	    bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`**${message.guild.name}** has been bumped.\n\nJOIN **---** 🔗 \`https://www.discord.gg/${invite.code}\` 🔗\n\nUser ID **---** ${message.author.id}\n\`\`\`AdBot: make a #adbot-updates channel for all the newest updates.\`\`\``));
         });
  setTimeout(() => ad(bot, message), 5*60000);
 }  
