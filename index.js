@@ -18,7 +18,7 @@ function ad(bot, message) {
 
 bot.on("ready", async () => {
     console.log(`${bot.user.username} is online!`);
-    bot.channels.filter(c => c.name === 'adbot_updates').forEach(channel => channel.send(`**AdBot** has just been **restarted**.`)
+    bot.channels.filter(c => c.name === 'adbot-updates').forEach(channel => channel.send(`**AdBot** has just been **restarted**.`)
 });
 
 bot.on('guildMemberAdd', member => {
@@ -128,7 +128,7 @@ bot.on("message", async message => {
   } 
   if (message.content === '^help') {
     message.channel.send("DMed you! Check it out for all the info!")
-    return message.author.send("**My Commands:** *all commands start with `^` prefix.*\n\t`help` shows this message.")
+    return message.author.send("**My Commands:** *all commands start with `^` prefix.*\n\n\t`help` shows this message.\n\n\t`ad` bumps your ad to the top of the servers.\n\n\t`custom-ad` sends a custom link to all servers.\n\n\n`WARNING` any NSFW or spam advertising will result in ban from using the bot. The ban will include no access to all bot features to ensure no further rule breaking.")
   }
   if (message.content === '^invite') {
     message.channel.send("I DMed you a link to add me to your server!")
@@ -138,7 +138,10 @@ bot.on("message", async message => {
     if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("No. Why would I test for you? I have a **Admin only** policy.");
     let adschannel = message.guild.channels.find(`name`, "ads");
     if(!adschannel) return message.channel.send("You don't have a **#ads** channel in the server! Please create one then type `^test`!");
-    message.channel.send("```- Checkpoint 1: Basic AdBot command channel added. Next checkpoint allows the Big Ad Button command which can be activated once every 10 minutes.```")
+    message.channel.send("```- Checkpoint 1: Basic AdBot command channel added.```")
+		let adsupchannel = message.guild.channels.find(`name`, "adbot-updates");
+    if(!adsupchannel) return message.channel.send("You don't have a **#adbot-updates** channel in the server! Please create one then type `^test`!");
+    message.channel.send("```- Checkpoint 2: #adbot-updates channel has been added to keep you up to date.```")
     message.channel.send("**__ALL SYSTEMS OPERATIONAL!__** In other words you did everything right and AdBot can run properly!")
   }
   if (message.content === '^ad') {
@@ -168,7 +171,6 @@ bot.on("message", async message => {
     return
   }
   if (cmd === '^custom-ad') {
-    if (message.author.id === '314560720308142082') return message.channel.send("You cant use this, you're banned.");
     let adschannel = message.guild.channels.find(`name`, "ads");
     if(!adschannel) return message.channel.send("The bot is not properly set up! Please type `^test`.");
 		if (message.author.id !== '346687165868015616') {
@@ -177,29 +179,20 @@ bot.on("message", async message => {
 		if (message.author.id !== '346687165868015616') {
 			if (chratis_talked_users.has(message.author.id)) return message.reply("You have to wait before using this command again.\n*[10 minute cooldown]*");
 		}
+		if (!message.content.toLowerCase().includes('https')) {
+      return message.channel.send("`fail to send` **---** a link including `https` must be in the custom message.")
+    }
     const sayMessage = args.join(" ");
     message.delete().catch(O_o=>{}); 
     message.channel.createInvite()
     	.then(invite => {
-	    bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`**${message.author.username}** just custom bumped!\n\nLINK **---** ${sayMessage}`));
+	    bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`**${message.author.username}** just custom bumped!\n\nLINK **---** ${sayMessage}\n\nSender ID: ${message.author.id}`));
         });
     message.channel.send(`<@${message.author.id}>, Auto Ads enabled with message:\n\`\`\`${sayMessage}\`\`\``);
     chratis_talked_users.add(message.author.id);
     setTimeout(() => {
       chratis_talked_users.delete(message.author.id);
     }, chratis_cooldown_time * 60000);
-  } 
-  if (message.content.startsWith('^big-ad-button')) {
-    message.channel.send(`\`^big-ad-button\` has been made auto! Just type \`^on\` to activate it!`)
-  }
-  if (message.content === '^on') {
-    if (button_talked_users.has(message.author.id)) return message.reply("you have already activated this command today!");
-    message.channel.send(`\`\`\`Big Ad Button has been activated!\`\`\``)
-    announce(bot, message)
-    button_talked_users.add(message.author.id);
-    setTimeout(() => {
-      button_talked_users.delete(message.author.id);
-    }, button_cooldown_time * 60000);
   }
 });
 
