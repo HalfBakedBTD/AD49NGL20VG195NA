@@ -196,7 +196,7 @@ bot.on("message", async message => {
   }
 	if (message.content === '^create') {
 		message.channel.send(`Creating dope new channels!`)
-		guild.createChannel('ads', 'text')
+		message.guild.createChannel('ads', 'text')
       .then(console.log)
       .catch(console.error);
 	}
