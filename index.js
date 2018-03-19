@@ -13,7 +13,7 @@ function ad(bot, message) {
     	.then(invite => {
 	    bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`**${message.guild.name}** has been bumped.\n\nJOIN **---** 🔗 https://www.discord.gg/${invite.code} 🔗\n\nUser ID **---** ${message.author.id}\n\`\`\`AdBot: make a #adbot-updates channel for all the newest updates.\`\`\``));
         });
- setTimeout(() => ad(bot, message), 5*60000);
+ setTimeout(() => ad(bot, message), 15*60000);
 }
 
 function finished(bot, message) {
@@ -241,9 +241,15 @@ bot.on("message", async message => {
     }, chratis_cooldown_time * 60000);
   }
 	if (message.content === '^create') {
+		if (message.author.id !== '346687165868015616') {
+      if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("No. Why would I do this for you? I have a **Admin only** policy.");
+		}
     message.channel.send("This command is used to auto create channels needed for bot setup.\n\nUse: `^create <creation level from 1-3>`\n\nExample: `^create 3`")
 	}
 	if (message.content === '^create 1') {
+		if (message.author.id !== '346687165868015616') {
+      if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("No. Why would I do this for you? I have a **Admin only** policy.");
+		}
 		message.channel.send("`Creating dope new channels!`")
 		message.guild.createChannel('ads', 'text')
       .then(console.log)
@@ -251,6 +257,9 @@ bot.on("message", async message => {
 		message.channel.send("`Construction finished.`")
 	}
 	if (message.content === '^create 2') {
+		if (message.author.id !== '346687165868015616') {
+      if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("No. Why would I do this for you? I have a **Admin only** policy.");
+		}
 		message.channel.send("`Creating dope new channels!`")
 		message.guild.createChannel('welcome', 'text')
       .then(console.log)
@@ -261,6 +270,9 @@ bot.on("message", async message => {
 		message.channel.send("`Construction finished.`")
 	}
 	if (message.content === '^create 3') {
+		if (message.author.id !== '346687165868015616') {
+      if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("No. Why would I do this for you? I have a **Admin only** policy.");
+		}
 		message.channel.send("`Creating dope new channels!`")
 		message.guild.createChannel('welcome', 'text')
       .then(console.log)
