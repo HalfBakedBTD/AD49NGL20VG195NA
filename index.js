@@ -229,7 +229,22 @@ bot.on("message", async message => {
 	}
 	if (message.content === '^emoji') {
 	  message.guild.createEmoji('./pictures/airhorn.png', 'adbot')
-    	.then(emoji => message.channel.send(`AdBot emoji added! You can now type \`:adbot:\` to see it!`))
+    	.then(emoji => console.log(`AdBot emoji added! You can now type \`:adbot:\` to see it!`))
+    	.catch(console.error);
+		message.guild.createEmoji('./pictures/Japan Airhorn.jpg', 'japan-adbot')
+    	.then(emoji => console.log(`AdBot emoji added! You can now type \`:adbot:\` to see it!`))
+    	.catch(console.error);
+		message.guild.createEmoji('./pictures/MLG Airhorn.jpg', 'mlg-adbot')
+    	.then(emoji => console.log(`AdBot emoji added! You can now type \`:adbot:\` to see it!`))
+    	.catch(console.error);
+		message.guild.createEmoji('./pictures/Sparkle Airhorn.jpg', 'sparkle-adbot')
+    	.then(emoji => console.log(`AdBot emoji added! You can now type \`:adbot:\` to see it!`))
+    	.catch(console.error);
+		message.guild.createEmoji('./pictures/Static Airhorn.jpg', 'static-adbot')
+    	.then(emoji => console.log(`AdBot emoji added! You can now type \`:adbot:\` to see it!`))
+    	.catch(console.error);
+		message.guild.createEmoji('./pictures/Sign Airhorn.jpg', 'adbot-sign')
+    	.then(emoji => console.log(`AdBot emoji added! You can now type \`:adbot:\` to see it!`))
     	.catch(console.error);
 	}
 });
