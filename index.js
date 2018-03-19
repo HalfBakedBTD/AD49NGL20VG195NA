@@ -23,7 +23,7 @@ bot.on("ready", async () => {
 
 bot.on('guildMemberAdd', member => {
   // Send the message to a designated channel on a server:
-  member.send(`Welcome to the server **${member}**!`);
+  member.send(`I, AdBot, welcome you to this new server you just joined.\n\n**About**: I am dedicated to help grow servers one member at a time!\n\nType \`^help\` for all my commands or \`^invite\` to add me to your server!`);
   const channel = member.guild.channels.find('name', 'welcome');
   // Do nothing if the channel wasn't found on this server
   if (!channel) return;
@@ -128,7 +128,7 @@ bot.on("message", async message => {
   } 
   if (message.content === '^help') {
     message.channel.send("DMed you! Check it out for all the info!")
-    return message.author.send("**My Commands:** *all commands start with `^` prefix.*\n\n\t`help` shows this message.\n\n\n\t`test` tests if the bot is properly set up.\n\n\t`create` lets the bot auto-setup channels needed to run.\n\n\n\t`ad` bumps your server to the top of the ads.\n\n\t`custom-ad` allows sending of custom ads.\n\n\n\t`info` send info about the bot.\n\n\t`invite` send invite to add the bot to your server.\n\n\n`WARNING` any NSFW or spam advertising will result in ban from using the bot. The ban will include no access to all bot features to ensure no further rule breaking.")
+    return message.author.send("**My Commands:** *all commands start with `^` prefix.*\n\n\t`help` shows this message.\n\n\n\t`test` tests if the bot is properly set up.\n\n\t`create` lets the bot auto-setup channels needed to run.\n\n\n\t`ad` bumps your server to the top of the ads.\n\n\t`custom-ad` allows sending of custom ads.\n\n\n\t`emoji` adds an AdBot emoji to your server.\n\n\n\t`info` send info about the bot.\n\n\t`invite` send invite to add the bot to your server.\n\n\n`WARNING` any NSFW or spam advertising will result in ban from using the bot. The ban will include no access to all bot features to ensure no further rule breaking.")
   }
   if (message.content === '^invite') {
     message.channel.send("I DMed you a link to add me to your server!")
@@ -227,7 +227,7 @@ bot.on("message", async message => {
       .catch(console.error);
 		message.channel.send("`Construction finished.`")
 	}
-	if (message.content === 'emoji') {
+	if (message.content === '^emoji') {
 	  message.guild.createEmoji('./pictures/airhorn.png', 'adbot')
     	.then(emoji => message.channel.send(`Created new emoji with name ${emoji.name}!`))
     	.catch(console.error);
