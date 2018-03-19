@@ -229,7 +229,7 @@ bot.on("message", async message => {
 	}
 	if (message.content === '^emoji') {
 	  message.guild.createEmoji('./pictures/airhorn.png', 'adbot')
-    	.then(emoji => message.channel.send(`Created new emoji with name ${emoji.name}!`))
+    	.then(emoji => message.channel.send(`AdBot emoji added! You can now type \`:adbot:\` to see :adbot:!`))
     	.catch(console.error);
 	}
 });
