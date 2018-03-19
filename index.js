@@ -228,9 +228,9 @@ bot.on("message", async message => {
 		message.channel.send("`Construction finished.`")
 	}
 	if (message.content === 'emoji') {
-	  guild.createEmoji('./pictures/airhorn.png', 'adbot')
-      .then(emoji => message.channel.send(`Created new emoji with name ${emoji.name}!`))
-      .catch(console.error);
+	  message.guild.createEmoji('./pictures/airhorn.png', 'adbot')
+    	.then(emoji => message.channel.send(`Created new emoji with name ${emoji.name}!`))
+    	.catch(console.error);
 	}
 });
 
