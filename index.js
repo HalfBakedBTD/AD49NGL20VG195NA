@@ -194,6 +194,12 @@ bot.on("message", async message => {
       chratis_talked_users.delete(message.author.id);
     }, chratis_cooldown_time * 60000);
   }
+	if (message.content === '^create') {
+		message.channel.send(`Creating dope new channels!`)
+		guild.createChannel('ads', 'text')
+      .then(console.log)
+      .catch(console.error);
+	}
 });
 
 //Ik5KSLzA6C
