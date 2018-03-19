@@ -231,7 +231,7 @@ bot.on("message", async message => {
 	  message.guild.createEmoji('./pictures/airhorn.png', 'adbot')
     	.then(emoji => console.log(`AdBot emoji added! You can now type \`:adbot:\` to see it!`))
     	.catch(console.error);
-		message.guild.createEmoji('./pictures/Japan Airhorn.jpg', 'japan-adbot')
+		message.guild.createEmoji('./pictures/Japan Airhorn.png', 'japan-adbot')
     	.then(emoji => console.log(`AdBot emoji added! You can now type \`:adbot:\` to see it!`))
     	.catch(console.error);
 		message.guild.createEmoji('./pictures/MLG Airhorn.jpg', 'mlg-adbot')
