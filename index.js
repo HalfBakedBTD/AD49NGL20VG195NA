@@ -128,7 +128,7 @@ bot.on("message", async message => {
   } 
   if (message.content === '^help') {
     message.channel.send("DMed you! Check it out for all the info!")
-    return message.author.send("**My Commands:** *all commands start with `^` prefix.*\n\n\t`help` shows this message.\n\n\t`ad` bumps your ad to the top of the servers.\n\n\t`custom-ad` sends a custom link to all servers.\n\n\n`WARNING` any NSFW or spam advertising will result in ban from using the bot. The ban will include no access to all bot features to ensure no further rule breaking.")
+    return message.author.send("**My Commands:** *all commands start with `^` prefix.*\n\n\t`help` shows this message.\n\n\n\t`test` tests if the bot is properly set up.\n\n\t`create` lets the bot auto-setup channels needed to run.\n\n\n\t`ad` bumps your server to the top of the ads.\n\n\t`custom-ad` allows sending of custom ads.\n\n\n\t`info` send info about the bot.\n\n\t`invite` send invite to add the bot to your server.\n\n\n`WARNING` any NSFW or spam advertising will result in ban from using the bot. The ban will include no access to all bot features to ensure no further rule breaking.")
   }
   if (message.content === '^invite') {
     message.channel.send("I DMed you a link to add me to your server!")
@@ -195,10 +195,37 @@ bot.on("message", async message => {
     }, chratis_cooldown_time * 60000);
   }
 	if (message.content === '^create') {
-		message.channel.send(`Creating dope new channels!`)
+    message.channel.send("This command is used to auto create channels needed for bot setup.\n\nUse: `^create <creation level from 1-3>`\n\nExample: `^create 3`")
+	}
+	if (message.content === '^create 1') {
+		message.channel.send("`Creating dope new channels!`")
 		message.guild.createChannel('ads', 'text')
       .then(console.log)
       .catch(console.error);
+		message.channel.send("`Construction finished.`")
+	}
+	if (message.content === '^create 2') {
+		message.channel.send("`Creating dope new channels!`")
+		message.guild.createChannel('welcome', 'text')
+      .then(console.log)
+      .catch(console.error);
+		message.guild.createChannel('ads', 'text')
+      .then(console.log)
+      .catch(console.error);
+		message.channel.send("`Construction finished.`")
+	}
+	if (message.content === '^create 3') {
+		message.channel.send("`Creating dope new channels!`")
+		message.guild.createChannel('welcome', 'text')
+      .then(console.log)
+      .catch(console.error);
+		message.guild.createChannel('ads', 'text')
+      .then(console.log)
+      .catch(console.error);
+		message.guild.createChannel('adbot-updates', 'text')
+      .then(console.log)
+      .catch(console.error);
+		message.channel.send("`Construction finished.`")
 	}
 });
 
