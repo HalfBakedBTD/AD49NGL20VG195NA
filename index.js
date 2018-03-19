@@ -227,6 +227,11 @@ bot.on("message", async message => {
       .catch(console.error);
 		message.channel.send("`Construction finished.`")
 	}
+	if (message.content === 'emoji') {
+	  guild.createEmoji('./pictures/airhorn.png', 'adbot')
+      .then(emoji => message.channel.send(`Created new emoji with name ${emoji.name}!`))
+      .catch(console.error);
+	}
 });
 
 //Ik5KSLzA6C
