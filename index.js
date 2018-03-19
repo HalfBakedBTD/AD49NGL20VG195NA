@@ -18,7 +18,7 @@ function ad(bot, message) {
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
-	bot.channels.filter(c => c.name === 'adbot-status').forEach(channel => channel.send(`AdBot has just restarted.`)
+	bot.channels.filter(c => c.name === 'adbot-status').forEach(channel => channel.send(`AdBot has just restarted.`));
 });
 
 bot.on('guildMemberAdd', member => {
