@@ -16,6 +16,60 @@ function ad(bot, message) {
  setTimeout(() => ad(bot, message), 15*60000);
 }
 
+function animead(bot, message) {
+   let adschannel = message.guild.channels.find(`name`, "ads");
+   message.channel.createInvite()
+    	.then(invite => {
+	    bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`**${message.guild.name}** has been bumped.\n\nGenre: **Anime\n\n**Join **-** https://discord.gg/${invite.code}\n\nUser ID **-** ${message.author.id}\n\`\`\`AdBot: make a #adbot-updates channel for all the newest updates.\`\`\``));
+        });
+ setTimeout(() => animead(bot, message), 15*60000);
+}
+
+function comedyad(bot, message) {
+   let adschannel = message.guild.channels.find(`name`, "ads");
+   message.channel.createInvite()
+    	.then(invite => {
+	    bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`**${message.guild.name}** has been bumped.\n\nGenre: **Comedy\n\n**Join **-** https://discord.gg/${invite.code}\n\nUser ID **-** ${message.author.id}\n\`\`\`AdBot: make a #adbot-updates channel for all the newest updates.\`\`\``));
+        });
+ setTimeout(() => comedyad(bot, message), 15*60000);
+}
+
+function programmingad(bot, message) {
+   let adschannel = message.guild.channels.find(`name`, "ads");
+   message.channel.createInvite()
+    	.then(invite => {
+	    bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`**${message.guild.name}** has been bumped.\n\nGenre: **Programming\n\n**Join **-** https://discord.gg/${invite.code}\n\nUser ID **-** ${message.author.id}\n\`\`\`AdBot: make a #adbot-updates channel for all the newest updates.\`\`\``));
+        });
+ setTimeout(() => programmingad(bot, message), 15*60000);
+}
+
+function dramaad(bot, message) {
+   let adschannel = message.guild.channels.find(`name`, "ads");
+   message.channel.createInvite()
+    	.then(invite => {
+	    bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`**${message.guild.name}** has been bumped.\n\nGenre: **Drama\n\n**Join **-** https://discord.gg/${invite.code}\n\nUser ID **-** ${message.author.id}\n\`\`\`AdBot: make a #adbot-updates channel for all the newest updates.\`\`\``));
+        });
+ setTimeout(() => dramaad(bot, message), 15*60000);
+}
+
+function gamingad(bot, message) {
+   let adschannel = message.guild.channels.find(`name`, "ads");
+   message.channel.createInvite()
+    	.then(invite => {
+	    bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`**${message.guild.name}** has been bumped.\n\nGenre: **Gaming\n\n**Join **-** https://discord.gg/${invite.code}\n\nUser ID **-** ${message.author.id}\n\`\`\`AdBot: make a #adbot-updates channel for all the newest updates.\`\`\``));
+        });
+ setTimeout(() => gamingad(bot, message), 15*60000);
+}
+
+function musicad(bot, message) {
+   let adschannel = message.guild.channels.find(`name`, "ads");
+   message.channel.createInvite()
+    	.then(invite => {
+	    bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`**${message.guild.name}** has been bumped.\n\nGenre: **Music/Voice Chat\n\n**Join **-** https://discord.gg/${invite.code}\n\nUser ID **-** ${message.author.id}\n\`\`\`AdBot: make a #adbot-updates channel for all the newest updates.\`\`\``));
+        });
+ setTimeout(() => musicad(bot, message), 15*60000);
+}
+
 function finished(bot, message) {
   message.channel.send(`\`AdBot emoji has been added to the server!\``)
 }
@@ -162,6 +216,9 @@ bot.on("message", async message => {
   if (message.author.id === '314560720308142082') {
 	  return message.channel.send("You are banned from AdBot.")
   }
+	if (message.content === '^genres') {
+		return message.channel.send(`<@${message.author.id}> here are my genres:\n\n\t\t\`anime\`\n\t\t\`comedy\`\n\t\t\`drama\`\n\t\t\`programming\`\n\t\t\`music\`\n\t\t\`gaming\`\n\nYou can use it like: \`^ad <genre>\``)	
+	}
   if (cmd === '^update') {
     if (!message.author.id === '346687165868015616') return message.channel.send("You cant use this command. It is owner only.");
     let adsupchannel = message.guild.channels.find(`name`, "adbot-updates");
@@ -174,10 +231,10 @@ bot.on("message", async message => {
   } 
   if (message.content === '^dmhelp') {
 		message.channel.send(`I have DMed you <@${message.author.id}>`)
-    return message.author.send(`<@${message.author.id}> here is my list of commands:\n:question: **^help** - Shows list of commands in the channel the command is sent in.\n:grey_question: **^dmhelp** - DMs you a list of my commands.\n:closed_book: **^test** - Helps you set up your server.\n:open_file_folder: **^create** - Automaticly sets up your server for you.\n\n:hammer: **^ban** - Bans a member in the server.\n:boot: **^kick** - Kicks a member in the server.\n:recycle: **^recycle** - Clears messages. Equivilent to \`purge\` or \`clear\` on other bots.\n\n:arrow_heading_up: **^ad** - Bumps your server to the top of the advertising slot.\n:stuck_out_tongue_winking_eye: **^emoji** - Adds the AdBot emoji to your server.\n:mailbox: **^info** - Gives various info about AdBot.\n\n:e_mail: **^invite** - Sends you and invite to add AdBot to your server.\n:pizza: **^server** - Links you to AdBot's official server.\n\n\`WARNING\` any NSFW or spam server names will result in ban from using the bot. The ban will include no access to all bot features to ensure no further rule breaking.`)
+    return message.author.send(`<@${message.author.id}> here is my list of commands:\n:question: **^help** - Shows list of commands in the channel the command is sent in.\n:grey_question: **^dmhelp** - DMs you a list of my commands.\n:closed_book: **^test** - Helps you set up your server.\n:open_file_folder: **^create** - Automaticly sets up your server for you.\n\n:hammer: **^ban** - Bans a member in the server.\n:boot: **^kick** - Kicks a member in the server.\n:recycle: **^recycle** - Clears messages. Equivilent to \`purge\` or \`clear\` on other bots.\n\n:arrow_heading_up: **^ad** - Bumps your server to the top of the advertising slot.\n:stuck_out_tongue_winking_eye: **^emoji** - Adds the AdBot emoji to your server.\n:gear: **^genres** - Displays all current genres the bot has.\n:mailbox: **^info** - Gives various info about AdBot.\n\n:e_mail: **^invite** - Sends you and invite to add AdBot to your server.\n:pizza: **^server** - Links you to AdBot's official server.\n\n\`WARNING\` any NSFW or spam server names will result in ban from using the bot. The ban will include no access to all bot features to ensure no further rule breaking.`)
   }
 	if (message.content === '^help') {
-    return message.channel.send(`<@${message.author.id}> here is my list of commands:\n:question: **^help** - Shows list of commands in the channel the command is sent in.\n:grey_question: **^dmhelp** - DMs you a list of my commands.\n:closed_book: **^test** - Helps you set up your server.\n:open_file_folder: **^create** - Automaticly sets up your server for you.\n\n:hammer: **^ban** - Bans a member in the server.\n:boot: **^kick** - Kicks a member in the server.\n:recycle: **^recycle** - Clears messages. Equivilent to \`purge\` or \`clear\` on other bots.\n\n:arrow_heading_up: **^ad** - Bumps your server to the top of the advertising slot.\n:stuck_out_tongue_winking_eye: **^emoji** - Adds the AdBot emoji to your server.\n:mailbox: **^info** - Gives various info about AdBot.\n\n:e_mail: **^invite** - Sends you and invite to add AdBot to your server.\n:pizza: **^server** - Links you to AdBot's official server.\n\n\`WARNING\` any NSFW or server spam names will result in ban from using the bot. The ban will include no access to all bot features to ensure no further rule breaking.`)
+    return message.channel.send(`<@${message.author.id}> here is my list of commands:\n:question: **^help** - Shows list of commands in the channel the command is sent in.\n:grey_question: **^dmhelp** - DMs you a list of my commands.\n:closed_book: **^test** - Helps you set up your server.\n:open_file_folder: **^create** - Automaticly sets up your server for you.\n\n:hammer: **^ban** - Bans a member in the server.\n:boot: **^kick** - Kicks a member in the server.\n:recycle: **^recycle** - Clears messages. Equivilent to \`purge\` or \`clear\` on other bots.\n\n:arrow_heading_up: **^ad** - Bumps your server to the top of the advertising slot.\n:stuck_out_tongue_winking_eye: **^emoji** - Adds the AdBot emoji to your server.\n:gear: **^genres** - Displays all current genres the bot has.\n:mailbox: **^info** - Gives various info about AdBot.\n\n:e_mail: **^invite** - Sends you and invite to add AdBot to your server.\n:pizza: **^server** - Links you to AdBot's official server.\n\n\`WARNING\` any NSFW or server spam names will result in ban from using the bot. The ban will include no access to all bot features to ensure no further rule breaking.`)
   }
   if (message.content === '^invite') {
     message.channel.send("I DMed you a link to add me to your server!")
@@ -209,7 +266,103 @@ bot.on("message", async message => {
 		  if (chratis_talked_users.has(message.author.id)) return message.reply("You have to wait before using this command again.\n*[10 min cooldown]*");
 		}
 		ad(bot, message)
-    message.channel.send("Ads have been enabled!")
+    message.channel.send("`Ads have been enabled!`")
+    chratis_talked_users.add(message.author.id);
+    setTimeout(() => {
+      chratis_talked_users.delete(message.author.id);
+    }, chratis_cooldown_time * 60000);
+  }
+  if (message.content === '^ad anime') {
+    let adschannel = message.guild.channels.find(`name`, "ads");
+    if(!adschannel) return message.channel.send("The bot is not properly set up for this command! Please type `^test`.");
+		if (message.author.id !== '346687165868015616') {
+      if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("No. Why would I do this for you? I have a **Admin only** policy.");
+		}
+		if (message.author.id !== '346687165868015616') {
+		  if (chratis_talked_users.has(message.author.id)) return message.reply("You have to wait before using this command again.\n*[10 min cooldown]*");
+		}
+		animead(bot, message)
+    message.channel.send("`Ads with anime genre have been enabled!`")
+    chratis_talked_users.add(message.author.id);
+    setTimeout(() => {
+      chratis_talked_users.delete(message.author.id);
+    }, chratis_cooldown_time * 60000);
+  } 
+	if (message.content === '^ad comedy') {
+    let adschannel = message.guild.channels.find(`name`, "ads");
+    if(!adschannel) return message.channel.send("The bot is not properly set up for this command! Please type `^test`.");
+		if (message.author.id !== '346687165868015616') {
+      if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("No. Why would I do this for you? I have a **Admin only** policy.");
+		}
+		if (message.author.id !== '346687165868015616') {
+		  if (chratis_talked_users.has(message.author.id)) return message.reply("You have to wait before using this command again.\n*[10 min cooldown]*");
+		}
+		comedyad(bot, message)
+    message.channel.send("`Ads with comedy genre have been enabled!`")
+    chratis_talked_users.add(message.author.id);
+    setTimeout(() => {
+      chratis_talked_users.delete(message.author.id);
+    }, chratis_cooldown_time * 60000);
+  } 
+	if (message.content === '^ad programming') {
+    let adschannel = message.guild.channels.find(`name`, "ads");
+    if(!adschannel) return message.channel.send("The bot is not properly set up for this command! Please type `^test`.");
+		if (message.author.id !== '346687165868015616') {
+      if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("No. Why would I do this for you? I have a **Admin only** policy.");
+		}
+		if (message.author.id !== '346687165868015616') {
+		  if (chratis_talked_users.has(message.author.id)) return message.reply("You have to wait before using this command again.\n*[10 min cooldown]*");
+		}
+		programmingad(bot, message)
+    message.channel.send("`Ads with programming genre have been enabled!`")
+    chratis_talked_users.add(message.author.id);
+    setTimeout(() => {
+      chratis_talked_users.delete(message.author.id);
+    }, chratis_cooldown_time * 60000);
+  } 
+	if (message.content === '^ad drama') {
+    let adschannel = message.guild.channels.find(`name`, "ads");
+    if(!adschannel) return message.channel.send("The bot is not properly set up for this command! Please type `^test`.");
+		if (message.author.id !== '346687165868015616') {
+      if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("No. Why would I do this for you? I have a **Admin only** policy.");
+		}
+		if (message.author.id !== '346687165868015616') {
+		  if (chratis_talked_users.has(message.author.id)) return message.reply("You have to wait before using this command again.\n*[10 min cooldown]*");
+		}
+		dramaad(bot, message)
+    message.channel.send("`Ads with drama genre have been enabled!`")
+    chratis_talked_users.add(message.author.id);
+    setTimeout(() => {
+      chratis_talked_users.delete(message.author.id);
+    }, chratis_cooldown_time * 60000);
+  } 
+	if (message.content === '^ad gaming') {
+    let adschannel = message.guild.channels.find(`name`, "ads");
+    if(!adschannel) return message.channel.send("The bot is not properly set up for this command! Please type `^test`.");
+		if (message.author.id !== '346687165868015616') {
+      if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("No. Why would I do this for you? I have a **Admin only** policy.");
+		}
+		if (message.author.id !== '346687165868015616') {
+		  if (chratis_talked_users.has(message.author.id)) return message.reply("You have to wait before using this command again.\n*[10 min cooldown]*");
+		}
+		gamingad(bot, message)
+    message.channel.send("`Ads with gaming genre have been enabled!`")
+    chratis_talked_users.add(message.author.id);
+    setTimeout(() => {
+      chratis_talked_users.delete(message.author.id);
+    }, chratis_cooldown_time * 60000);
+  } 
+	if (message.content === '^ad music') {
+    let adschannel = message.guild.channels.find(`name`, "ads");
+    if(!adschannel) return message.channel.send("The bot is not properly set up for this command! Please type `^test`.");
+		if (message.author.id !== '346687165868015616') {
+      if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("No. Why would I do this for you? I have a **Admin only** policy.");
+		}
+		if (message.author.id !== '346687165868015616') {
+		  if (chratis_talked_users.has(message.author.id)) return message.reply("You have to wait before using this command again.\n*[10 min cooldown]*");
+		}
+		musicad(bot, message)
+    message.channel.send("`Ads with music genre have been enabled!`")
     chratis_talked_users.add(message.author.id);
     setTimeout(() => {
       chratis_talked_users.delete(message.author.id);
