@@ -177,11 +177,11 @@ bot.on("message", async message => {
     return message.author.send(`<@${message.author.id}> here is my list of commands:\n:question: **help** - Shows list of commands in the channel the command is sent in.\n:grey_question: **dmhelp** - DMs you a list of my commands.\n:closed_book: **test** - Helps you set up your server.\n:open_file_folder: **create** - Automaticly sets up your server for you.\n:exclamation: **NOTE:** All commands start with the \`^\` prefix.\n\n:hammer: **ban** - Bans a member in the server.\n:boot: **kick** - Kicks a member in the server.\n\n:arrow_heading_up: **ad** - Bumps your server to the top of the advertising slot.\n:stuck_out_tongue_winking_eye: **emoji** - Adds the AdBot emoji to your server.\n:mailbox: **info** - Gives various info about AdBot.\n\n\n:e_mail: **invite** - Sends you and invite to add AdBot to your server.\n\n\`WARNING\` any NSFW or spam advertising will result in ban from using the bot. The ban will include no access to all bot features to ensure no further rule breaking.`)
   }
 	if (message.content === '^help') {
-    
+    return message.author.send(`<@${message.author.id}> here is my list of commands:\n:question: **help** - Shows list of commands in the channel the command is sent in.\n:grey_question: **dmhelp** - DMs you a list of my commands.\n:closed_book: **test** - Helps you set up your server.\n:open_file_folder: **create** - Automaticly sets up your server for you.\n:exclamation: **NOTE:** All commands start with the \`^\` prefix.\n\n:hammer: **ban** - Bans a member in the server.\n:boot: **kick** - Kicks a member in the server.\n\n:arrow_heading_up: **ad** - Bumps your server to the top of the advertising slot.\n:stuck_out_tongue_winking_eye: **emoji** - Adds the AdBot emoji to your server.\n:mailbox: **info** - Gives various info about AdBot.\n\n\n:e_mail: **invite** - Sends you and invite to add AdBot to your server.\n\n\`WARNING\` any NSFW or spam advertising will result in ban from using the bot. The ban will include no access to all bot features to ensure no further rule breaking.`)
   }
   if (message.content === '^invite') {
     message.channel.send("I DMed you a link to add me to your server!")
-    return message.author.send("**Invite me** to your discord:\n:link: https://discordapp.com/api/oauth2/authorize?client_id=421744026740457474&permissions=2146958583&scope=bot :link:")
+    return message.channel.send("**Invite me** to your discord:\n:link: https://discordapp.com/api/oauth2/authorize?client_id=421744026740457474&permissions=2146958583&scope=bot :link:")
   }
   if (message.content === '^test') {
     if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("No. Why would I test for you? I have a **Admin only** policy.");
