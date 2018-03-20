@@ -185,9 +185,15 @@ bot.on("message", async message => {
     let adschannel = message.guild.channels.find(`name`, "ads");
     if(!adschannel) return message.channel.send("You don't have a **#ads** channel in the server! Please create one then type `^test`!");
     message.channel.send("```- Checkpoint 1: Basic AdBot command channel added.```")
+		let logschannel = message.guild.channels.find(`name`, "logs");
+    if(!logschannel) return message.channel.send("You don't have a **#logs** channel in the server! Please create one then type `^test`!");
+    message.channel.send("```- Checkpoint 2: #logs channel has been added to record moderation data.```")
 		let adsupchannel = message.guild.channels.find(`name`, "adbot-updates");
     if(!adsupchannel) return message.channel.send("You don't have a **#adbot-updates** channel in the server! Please create one then type `^test`!");
-    message.channel.send("```- Checkpoint 2: #adbot-updates channel has been added to keep you up to date.```")
+    message.channel.send("```- Checkpoint 3: #adbot-updates channel has been added to keep you up to date.```")
+		let adsupchannel = message.guild.channels.find(`name`, "adbot-updates");
+    if(!adsupchannel) return message.channel.send("You don't have a **#welcome** channel in the server! Please create one then type `^test`!");
+    message.channel.send("```- Checkpoint 4: #welcome channel has been added to welcome newcomers.```")
     message.channel.send("**__ALL SYSTEMS OPERATIONAL!__** In other words you did everything right and AdBot can run properly!")
   }
   if (message.content === '^ad') {
@@ -244,7 +250,7 @@ bot.on("message", async message => {
 		if (message.author.id !== '346687165868015616') {
       if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("No. Why would I do this for you? I have a **Admin only** policy.");
 		}
-    message.channel.send("This command is used to auto create channels needed for bot setup.\n\nUse: `^create <creation level from 1-3>`\n\nExample: `^create 3`")
+    message.channel.send("This command is used to auto create channels needed for bot setup.\n\nUse: `^create <creation level from 1-4>`\n\nExample: `^create 3`")
 	}
 	if (message.content === '^create 1') {
 		if (message.author.id !== '346687165868015616') {
@@ -281,6 +287,25 @@ bot.on("message", async message => {
       .then(console.log)
       .catch(console.error);
 		message.guild.createChannel('adbot-updates', 'text')
+      .then(console.log)
+      .catch(console.error);
+		message.channel.send("`Construction finished.`")
+	}
+	if (message.content === '^create 4') {
+		if (message.author.id !== '346687165868015616') {
+      if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("No. Why would I do this for you? I have a **Admin only** policy.");
+		}
+		message.channel.send("`Creating dope new channels!`")
+		message.guild.createChannel('welcome', 'text')
+      .then(console.log)
+      .catch(console.error);
+		message.guild.createChannel('ads', 'text')
+      .then(console.log)
+      .catch(console.error);
+		message.guild.createChannel('adbot-updates', 'text')
+      .then(console.log)
+      .catch(console.error);
+		message.guild.createChannel('logs', 'text')
       .then(console.log)
       .catch(console.error);
 		message.channel.send("`Construction finished.`")
