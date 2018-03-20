@@ -174,10 +174,10 @@ bot.on("message", async message => {
   } 
   if (message.content === '^dmhelp') {
 		message.channel.send(`I have DMed you <@${message.author.id}>`)
-    return message.author.send(`<@${message.author.id}> here is my list of commands:\n:question: **^help** - Shows list of commands in the channel the command is sent in.\n:grey_question: **^dmhelp** - DMs you a list of my commands.\n:closed_book: **^test** - Helps you set up your server.\n:open_file_folder: **^create** - Automaticly sets up your server for you.\n\n:hammer: **^ban** - Bans a member in the server.\n:boot: **^kick** - Kicks a member in the server.\n\n:arrow_heading_up: **^ad** - Bumps your server to the top of the advertising slot.\n:stuck_out_tongue_winking_eye: **^emoji** - Adds the AdBot emoji to your server.\n:mailbox: **^info** - Gives various info about AdBot.\n\n\n:e_mail: **^invite** - Sends you and invite to add AdBot to your server.\n:pizza: **^server** - Links you to AdBot's official server.\n\n\`WARNING\` any NSFW or spam server names will result in ban from using the bot. The ban will include no access to all bot features to ensure no further rule breaking.`)
+    return message.author.send(`<@${message.author.id}> here is my list of commands:\n:question: **^help** - Shows list of commands in the channel the command is sent in.\n:grey_question: **^dmhelp** - DMs you a list of my commands.\n:closed_book: **^test** - Helps you set up your server.\n:open_file_folder: **^create** - Automaticly sets up your server for you.\n\n:hammer: **^ban** - Bans a member in the server.\n:boot: **^kick** - Kicks a member in the server.\n:recycle: **^recycle** - Clears messages. Equivilent to \`purge\` or \`clear\` on other bots.\n\n:arrow_heading_up: **^ad** - Bumps your server to the top of the advertising slot.\n:stuck_out_tongue_winking_eye: **^emoji** - Adds the AdBot emoji to your server.\n:mailbox: **^info** - Gives various info about AdBot.\n\n\n:e_mail: **^invite** - Sends you and invite to add AdBot to your server.\n:pizza: **^server** - Links you to AdBot's official server.\n\n\`WARNING\` any NSFW or spam server names will result in ban from using the bot. The ban will include no access to all bot features to ensure no further rule breaking.`)
   }
 	if (message.content === '^help') {
-    return message.channel.send(`<@${message.author.id}> here is my list of commands:\n:question: **^help** - Shows list of commands in the channel the command is sent in.\n:grey_question: **^dmhelp** - DMs you a list of my commands.\n:closed_book: **^test** - Helps you set up your server.\n:open_file_folder: **^create** - Automaticly sets up your server for you.\n\n:hammer: **^ban** - Bans a member in the server.\n:boot: **^kick** - Kicks a member in the server.\n\n:arrow_heading_up: **^ad** - Bumps your server to the top of the advertising slot.\n:stuck_out_tongue_winking_eye: **^emoji** - Adds the AdBot emoji to your server.\n:mailbox: **^info** - Gives various info about AdBot.\n\n\n:e_mail: **^invite** - Sends you and invite to add AdBot to your server.\n:pizza: **^server** - Links you to AdBot's official server.\n\n\`WARNING\` any NSFW or server spam names will result in ban from using the bot. The ban will include no access to all bot features to ensure no further rule breaking.`)
+    return message.channel.send(`<@${message.author.id}> here is my list of commands:\n:question: **^help** - Shows list of commands in the channel the command is sent in.\n:grey_question: **^dmhelp** - DMs you a list of my commands.\n:closed_book: **^test** - Helps you set up your server.\n:open_file_folder: **^create** - Automaticly sets up your server for you.\n\n:hammer: **^ban** - Bans a member in the server.\n:boot: **^kick** - Kicks a member in the server.\n:recycle: **^recycle** - Clears messages. Equivilent to \`purge\` or \`clear\` on other bots.\n\n:arrow_heading_up: **^ad** - Bumps your server to the top of the advertising slot.\n:stuck_out_tongue_winking_eye: **^emoji** - Adds the AdBot emoji to your server.\n:mailbox: **^info** - Gives various info about AdBot.\n\n\n:e_mail: **^invite** - Sends you and invite to add AdBot to your server.\n:pizza: **^server** - Links you to AdBot's official server.\n\n\`WARNING\` any NSFW or server spam names will result in ban from using the bot. The ban will include no access to all bot features to ensure no further rule breaking.`)
   }
   if (message.content === '^invite') {
     message.channel.send("I DMed you a link to add me to your server!")
@@ -361,15 +361,15 @@ bot.on("message", async message => {
 		if (!logschannel) return message.channel.send('If you create a `#logs` channel I can record your moderation data!')
 		logschannel.send(`:hammer: **__User Banned__** :hammer: \n\n**:anger: Banner:** <@${message.author.id}>\n\n**:scream: Banned:** <@${member.user.id}>\n\n**:newspaper: Reason:** ${reason}`)    
 	}
-	if (message.content.startsWith('^purge')) {
+	if (message.content.startsWith('^recycle')) {
 		let logschannel = message.guild.channels.find('name', 'logs');
 		if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("No. Why would I purge for you?");
-  	if(!args[0]) return message.channel.send(`:page_facing_up: **Info** - This command is used to clear messages.\n\n:dividers: Use - \`^purge <number of messages to purge>\`\n\n:ice_cream: Example - \`^purge 8\``);
+  	if(!args[0]) return message.channel.send(`:page_facing_up: **Info** - This command is used to clear messages.\n\n:dividers: Use - \`^recycle <number of messages to purge>\`\n\n:ice_cream: Example - \`^recycle 8\``);
   	message.channel.bulkDelete(args[0]).then(() => {
 			message.channel.send(`**__Cleared ${args[0]} messages.__**`).then(msg => msg.delete(8000));
 		});
 		if (!logschannel) return message.channel.send('If you create a `#logs` channel I can record your moderation data!')
-		logschannel.send(`:recycle: **__Messages Cleared__** :recycle:\n\n:person_with_blond_hair: **User:** <@${message.author.id}>\n\n:hash: **Channel:** <#${message.channel.id}>\n\n:fire: **Amount:** ${args[0]}`)
+		logschannel.send(`:recycle: **__Messages Recycled__** :recycle:\n\n:person_with_blond_hair: **User:** <@${message.author.id}>\n\n:hash: **Channel:** <#${message.channel.id}>\n\n:fire: **Amount:** ${args[0]}`)
 	}
 });
 
