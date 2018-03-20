@@ -288,7 +288,7 @@ bot.on("message", async message => {
 	if (message.content === '^emoji') {
 	  e(bot, message)
 	}
-	if (message.content === '^kick') {
+	if (message.content.startsWith('^kick')) {
 		if (!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("Sorry, you don't have permissions to use this!");
 		
 		let logschannel = message.guild.channels.find(`name`, "ads");
