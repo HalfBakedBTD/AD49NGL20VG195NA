@@ -288,6 +288,29 @@ bot.on("message", async message => {
 	if (message.content === '^emoji') {
 	  e(bot, message)
 	}
+	if (message.content === '^kick') {
+		if (!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("Sorry, you don't have permissions to use this!");
+		
+		let logschannel = message.guild.channels.find(`name`, "ads");
+    
+    let member = message.mentions.members.first();
+    if(!member)
+      return message.reply("Please mention a member!");
+    if(!member.kickable) 
+      return message.reply("I cannot kick this user!");
+    
+    // slice(1) removes the first part, which here should be the user mention!
+    let reason = args.slice(1).join(' ');
+    if(!reason)
+      return message.reply("Please indicate a reason for the kick!");
+    
+    await member.kick(reason)
+      .catch(error => message.reply(`Sorry, I couldn't kick because of : ${error}`));
+    message.reply(`${member.user.username} has been kicked by ${message.author.username} because: ***${reason}***`);
+    if(!logschannel) return message.channel.send("Make a channel named `#logs` to record moderation data.");
+		
+		logschannel.send(`${member.user.username} has been kicked by ${message.author.username}.\nHe gave this reason: ***${reason}***`);
+	}
 });
 
 //Ik5KSLzA6C
