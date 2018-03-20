@@ -191,8 +191,8 @@ bot.on("message", async message => {
 		let adsupchannel = message.guild.channels.find(`name`, "adbot-updates");
     if(!adsupchannel) return message.channel.send("You don't have a **#adbot-updates** channel in the server! Please create one then type `^test`!");
     message.channel.send("```- Checkpoint 3: #adbot-updates channel has been added to keep you up to date.```")
-		let adsupchannel = message.guild.channels.find(`name`, "adbot-updates");
-    if(!adsupchannel) return message.channel.send("You don't have a **#welcome** channel in the server! Please create one then type `^test`!");
+		let welchannel = message.guild.channels.find(`name`, "adbot-updates");
+    if(!welchannel) return message.channel.send("You don't have a **#welcome** channel in the server! Please create one then type `^test`!");
     message.channel.send("```- Checkpoint 4: #welcome channel has been added to welcome newcomers.```")
     message.channel.send("**__ALL SYSTEMS OPERATIONAL!__** In other words you did everything right and AdBot can run properly!")
   }
