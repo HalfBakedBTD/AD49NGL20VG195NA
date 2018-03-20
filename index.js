@@ -340,7 +340,7 @@ bot.on("message", async message => {
     message.channel.send(`${member.user.username} has been kicked by ${message.author.username} because: ***${reason}***`);
     if(!logschannel) return message.channel.send("Make a channel named `#logs` to record moderation data.");
 		
-		logschannel.send(`**:anger: Kicker:** <@${message.author.id}>\n\n**:scream: Kicked:** <@${member.user.id}>\n\n**:newspaper: Reason:** ${reason}`)
+		logschannel.send(`:boot: **__User Kicked__** :boot: \n\n**:anger: Kicker:** <@${message.author.id}>\n\n**:scream: Kicked:** <@${member.user.id}>\n\n**:newspaper: Reason:** ${reason}`)
 	}
 	if (message.content.startsWith('^ban')) {
 		if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("Sorry, you don't have permissions to use this!");
@@ -359,13 +359,16 @@ bot.on("message", async message => {
       .catch(error => message.reply(`Sorry, I couldn't ban because of : ${error}`));
     message.channel.send(`${member.user.username} has been banned by ${message.author.username} because: **__${reason}__**`);
 		if (!logschannel) return message.channel.send('If you create a `#logs` channel I can record your moderation data!')
-		logschannel.send(`**:anger: Banner:** <@${message.author.id}>\n\n**:scream: Banned:** <@${member.user.id}>\n\n**:newspaper: Reason:** ${reason}`)    
+		logschannel.send(`:hammer: **__User Banned__** :hammer: \n\n**:anger: Banner:** <@${message.author.id}>\n\n**:scream: Banned:** <@${member.user.id}>\n\n**:newspaper: Reason:** ${reason}`)    
 	}
 	if (message.content.startsWith('^purge')) {
+		let logschannel = message.guild.channels.find('name', 'logs');
 		if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("No. Why would I purge for you?");
   	if(!args[0]) return message.channel.send(`:page_facing_up: **Info** - This command is used to clear messages.\n\n:dividers: Use - \`^purge <number of messages to purge>\`\n\n:ice_cream: Example - \`^purge 8\``);
   	message.channel.bulkDelete(args[0]).then(() => {
   	message.channel.send(`**__Cleared ${args[0]} messages.__**`).then(msg => msg.delete(8000));
+		if (!logschannel) return message.channel.send('If you create a `#logs` channel I can record your moderation data!')
+		logschannel.send(`:recycle: **__Messages Cleared__** :recycle:\n\n:person_with_blond_hair: **User:** <@${message.author.id}>\n\n:hash: **Channel:** <#${message.channel.id}>\n\n:fire: **Amount:** ${args[0]}`)
 	}
 });
 
