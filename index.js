@@ -338,7 +338,7 @@ bot.on("message", async message => {
 	}
 	if (message.content.startsWith('^ban')) {
 		if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("Sorry, you don't have permissions to use this!");
-    let logs = message.guild.channels.find('name', 'logs');
+    let logschannel = message.guild.channels.find('name', 'logs');
 		let member = message.mentions.members.first();
     if(!member)
       return message.reply("Please mention member to ban!");
