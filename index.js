@@ -17,7 +17,7 @@ function ad(bot, message) {
 }
 
 function finished(bot, message) {
-  message.channel.send(`Added.`)
+  message.channel.send(`AdBot emoji has been added to the server!`)
 }
 
 function emojis(bot, message) {
@@ -256,7 +256,7 @@ bot.on("message", async message => {
 		if (message.author.id !== '346687165868015616') {
       if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("No. Why would I do this for you? I have a **Admin only** policy.");
 		}
-    message.channel.send("This command is used to auto create channels needed for bot setup.\n\nUse: `^create <creation level from 1-4>`\n\nExample: `^create 3`")
+    message.channel.send(`:page_facing_up: **Info** - This command is used to auto create channels needed for bot setup.\n\n:dividers: Use - \`^create <creation level from 1-4>\`\n\n:currency_exchange: Example - \`^create 4\``)
 	}
 	if (message.content === '^create 1') {
 		if (message.author.id !== '346687165868015616') {
