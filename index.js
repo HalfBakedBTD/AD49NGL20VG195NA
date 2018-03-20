@@ -17,7 +17,7 @@ function ad(bot, message) {
 }
 
 function finished(bot, message) {
-  message.channel.send(`AdBot emoji has been added to the server!`)
+  message.channel.send(`\`AdBot emoji has been added to the server!\``)
 }
 
 function emojis(bot, message) {
