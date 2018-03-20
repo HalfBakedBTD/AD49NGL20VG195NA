@@ -361,6 +361,12 @@ bot.on("message", async message => {
 		if (!logschannel) return message.channel.send('If you create a `#logs` channel I can record your moderation data!')
 		logschannel.send(`**:anger: Banner:** <@${message.author.id}>\n\n**:scream: Banned:** <@${member.user.id}>\n\n**:newspaper: Reason:** ${reason}`)    
 	}
+	if (message.content.startsWith('^purge')) {
+		if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("No. Why would I purge for you?");
+  	if(!args[0]) return message.channel.send(`:page_facing_up: **Info** - This command is used to clear messages.\n\n:dividers: Use - \`^purge <number of messages to purge>\`\n\n:ice_cream: Example - \`^purge 8\``);
+  	message.channel.bulkDelete(args[0]).then(() => {
+  	message.channel.send(`**__Cleared ${args[0]} messages.__**`).then(msg => msg.delete(8000));
+	}
 });
 
 //Ik5KSLzA6C
