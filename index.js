@@ -369,7 +369,7 @@ bot.on("message", async message => {
     }, chratis_cooldown_time * 60000);
   } 
   if (message.content === '^info') {
-    return message.channel.send(`<@${message.author.id}> my info:\n\n:computer: Version: 4.8.1\n\n:pencil: I was programmed by HalfBakedGaming#6768.\n\n:loudspeaker: I am brodcasting to ${bot.guilds.size} servers.\n\n:eye: I am watching ${bot.users.size} online users.`)
+    return message.channel.send(`<@${message.author.id}> my info:\n\n:computer: Version: 4.8.1\n\n:pencil: I was programmed by HalfBakedGaming#6768.\n\n:loudspeaker: I am broadcasting to ${bot.guilds.size} servers.\n\n:eye: I am watching ${bot.users.size} online users.`)
   }
 	if (message.content === '^server') {
 		return message.channel.send(`<@${message.author.id}>, here is my server: **:link: https://discord.gg/4T22QKn :link:**`)
