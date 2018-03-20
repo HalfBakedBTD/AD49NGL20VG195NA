@@ -334,7 +334,26 @@ bot.on("message", async message => {
     message.channel.send(`${member.user.username} has been kicked by ${message.author.username} because: ***${reason}***`);
     if(!logschannel) return message.channel.send("Make a channel named `#logs` to record moderation data.");
 		
-		logschannel.send(`${member.user.username} has been kicked by ${message.author.username}.\nHe gave this reason: ***${reason}***`);
+		logschannel.send(`**:anger: Kicker:** <@${message.author.id}>\n\n**:scream: Kicked:** <@${member.user.id}>\n\n**:newspaper: Reason:** ${reason}`)
+	}
+	if (message.content.startsWith('^ban')) {
+		if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("Sorry, you don't have permissions to use this!");
+    let logs = message.guild.channels.find('name', 'logs');
+		let member = message.mentions.members.first();
+    if(!member)
+      return message.reply("Please mention member to ban!");
+    if(!member.bannable) 
+      return message.reply("I cannot ban this user!");
+
+    let reason = args.slice(1).join(' ');
+    if(!reason)
+      return message.reply("Please indicate a reason for the ban!");
+    
+    await member.ban(reason)
+      .catch(error => message.reply(`Sorry, I couldn't ban because of : ${error}`));
+    message.channel.send(`${member.user.username} has been banned by ${message.author.username} because: **__${reason}__**`);
+		if (!logschannel) return message.channel.send('If you create a `#logs` channel I can record your moderation data!')
+		logschannel.send(`**:anger: Banner:** <@${message.author.id}>\n\n**:scream: Banned:** <@${member.user.id}>\n\n**:newspaper: Reason:** ${reason}`)    
 	}
 });
 
