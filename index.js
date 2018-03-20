@@ -217,7 +217,7 @@ bot.on("message", async message => {
 	  return message.channel.send("You are banned from AdBot.")
   }
 	if (message.content === '^genres') {
-		return message.channel.send(`<@${message.author.id}> here are my genres:\n\n\t\t\`anime\`\n\t\t\`comedy\`\n\t\t\`drama\`\n\t\t\`programming\`\n\t\t\`music\`\n\t\t\`gaming\`\n\nYou can use it like: \`^ad <genre>\``)	
+		return message.channel.send(`<@${message.author.id}> here are my genres:\n\t\t\`anime\`\n\t\t\`comedy\`\n\t\t\`drama\`\n\t\t\`programming\`\n\t\t\`music\`\n\t\t\`gaming\`\n\nYou can use it like: \`^ad <genre>\``)	
 	}
   if (cmd === '^update') {
     if (!message.author.id === '346687165868015616') return message.channel.send("You cant use this command. It is owner only.");
@@ -266,7 +266,7 @@ bot.on("message", async message => {
 		  if (chratis_talked_users.has(message.author.id)) return message.reply("You have to wait before using this command again.\n*[10 min cooldown]*");
 		}
 		ad(bot, message)
-    message.channel.send("`Ads have been enabled!`")
+    message.channel.send("`Ads have been enabled!`\nYou can add a genre behind your ad. Type `^genres` for more info.")
     chratis_talked_users.add(message.author.id);
     setTimeout(() => {
       chratis_talked_users.delete(message.author.id);
