@@ -523,6 +523,16 @@ bot.on("message", async message => {
 		if (!logschannel) return message.channel.send('If you create a `#logs` channel I can record your moderation data!')
 		logschannel.send(`:recycle: **__Messages Recycled__** :recycle:\n\n:person_with_blond_hair: **User:** <@${message.author.id}>\n\n:hash: **Channel:** <#${message.channel.id}>\n\n:fire: **Amount:** ${args[0]}`)
 	}
+	if (message.content === '^purge-check') {
+		guild.pruneMembers(7, true)
+      .then(pruned => console.log(`${pruned} people are scheduled to be purged!\n\`I scanned for people who have not been on for 7 which are scheduled to be purged.\``))
+      .catch(console.error);
+	}
+	if (message.content === '^purge') {
+	  guild.pruneMembers(7)
+      .then(pruned => console.log(`I just purged ${pruned} inactive people!\n\`Purged members are members who havn't been on in 7 days.\``))
+      .catch(console.error);
+	}
 });
 
 //Ik5KSLzA6C
