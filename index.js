@@ -11,7 +11,7 @@ function ad(bot, message) {
    let adschannel = message.guild.channels.find(`name`, "ads");
    message.channel.createInvite()
     	.then(invite => {
-	    bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`**${message.guild.name}** has been bumped.\n\nGenre: **Not Set\n\n**Join **-** https://discord.gg/${invite.code}\n\nUser ID **-** ${message.author.id}\n\`\`\`AdBot: make a #adbot-updates channel for all the newest updates.\`\`\``));
+	    bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`:oncoming_police_car: **${message.guild.name}** has been bumped.\n\n:notepad_spiral: Genre: **Not Set\n\n**:link: Join **-** https://discord.gg/${invite.code}\n\n:globe_with_meridians: User ID **-** ${message.author.id}\n\`\`\`AdBot: make a #adbot-updates channel for all the newest updates.\`\`\``));
         });
  setTimeout(() => ad(bot, message), 15*60000);
 }
@@ -20,7 +20,7 @@ function animead(bot, message) {
    let adschannel = message.guild.channels.find(`name`, "ads");
    message.channel.createInvite()
     	.then(invite => {
-	    bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`**${message.guild.name}** has been bumped.\n\nGenre: **Anime\n\n**Join **-** https://discord.gg/${invite.code}\n\nUser ID **-** ${message.author.id}\n\`\`\`AdBot: make a #adbot-updates channel for all the newest updates.\`\`\``));
+	    bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`:oncoming_police_car: **${message.guild.name}** has been bumped.\n\n:cartwheel: Genre: **Anime\n\n**:link: Join **-** https://discord.gg/${invite.code}\n\n:globe_with_meridians: User ID **-** ${message.author.id}\n\`\`\`AdBot: make a #adbot-updates channel for all the newest updates.\`\`\``));
         });
  setTimeout(() => animead(bot, message), 15*60000);
 }
@@ -29,7 +29,7 @@ function comedyad(bot, message) {
    let adschannel = message.guild.channels.find(`name`, "ads");
    message.channel.createInvite()
     	.then(invite => {
-	    bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`**${message.guild.name}** has been bumped.\n\nGenre: **Comedy\n\n**Join **-** https://discord.gg/${invite.code}\n\nUser ID **-** ${message.author.id}\n\`\`\`AdBot: make a #adbot-updates channel for all the newest updates.\`\`\``));
+	    bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`:oncoming_police_car: **${message.guild.name}** has been bumped.\n\n:laughing: Genre: **Comedy\n\n**:link: Join **-** https://discord.gg/${invite.code}\n\n:globe_with_meridians: User ID **-** ${message.author.id}\n\`\`\`AdBot: make a #adbot-updates channel for all the newest updates.\`\`\``));
         });
  setTimeout(() => comedyad(bot, message), 15*60000);
 }
@@ -38,7 +38,7 @@ function programmingad(bot, message) {
    let adschannel = message.guild.channels.find(`name`, "ads");
    message.channel.createInvite()
     	.then(invite => {
-	    bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`**${message.guild.name}** has been bumped.\n\nGenre: **Programming\n\n**Join **-** https://discord.gg/${invite.code}\n\nUser ID **-** ${message.author.id}\n\`\`\`AdBot: make a #adbot-updates channel for all the newest updates.\`\`\``));
+	    bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`:oncoming_police_car: **${message.guild.name}** has been bumped.\n\n:file_folder: Genre: **Programming\n\n**:link: Join **-** https://discord.gg/${invite.code}\n\n:globe_with_meridians: User ID **-** ${message.author.id}\n\`\`\`AdBot: make a #adbot-updates channel for all the newest updates.\`\`\``));
         });
  setTimeout(() => programmingad(bot, message), 15*60000);
 }
@@ -47,7 +47,7 @@ function dramaad(bot, message) {
    let adschannel = message.guild.channels.find(`name`, "ads");
    message.channel.createInvite()
     	.then(invite => {
-	    bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`**${message.guild.name}** has been bumped.\n\nGenre: **Drama\n\n**Join **-** https://discord.gg/${invite.code}\n\nUser ID **-** ${message.author.id}\n\`\`\`AdBot: make a #adbot-updates channel for all the newest updates.\`\`\``));
+	    bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`:oncoming_police_car: **${message.guild.name}** has been bumped.\n\n:clapper: Genre: **Drama\n\n**:link: Join **-** https://discord.gg/${invite.code}\n\n:globe_with_meridians: User ID **-** ${message.author.id}\n\`\`\`AdBot: make a #adbot-updates channel for all the newest updates.\`\`\``));
         });
  setTimeout(() => dramaad(bot, message), 15*60000);
 }
@@ -56,7 +56,7 @@ function gamingad(bot, message) {
    let adschannel = message.guild.channels.find(`name`, "ads");
    message.channel.createInvite()
     	.then(invite => {
-	    bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`**${message.guild.name}** has been bumped.\n\nGenre: **Gaming\n\n**Join **-** https://discord.gg/${invite.code}\n\nUser ID **-** ${message.author.id}\n\`\`\`AdBot: make a #adbot-updates channel for all the newest updates.\`\`\``));
+	    bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`:oncoming_police_car: **${message.guild.name}** has been bumped.\n\n:video_game: Genre: **Gaming\n\n**:link: Join **-** https://discord.gg/${invite.code}\n\n:globe_with_meridians: User ID **-** ${message.author.id}\n\`\`\`AdBot: make a #adbot-updates channel for all the newest updates.\`\`\``));
         });
  setTimeout(() => gamingad(bot, message), 15*60000);
 }
@@ -65,7 +65,7 @@ function musicad(bot, message) {
    let adschannel = message.guild.channels.find(`name`, "ads");
    message.channel.createInvite()
     	.then(invite => {
-	    bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`**${message.guild.name}** has been bumped.\n\nGenre: **Music/Voice Chat\n\n**Join **-** https://discord.gg/${invite.code}\n\nUser ID **-** ${message.author.id}\n\`\`\`AdBot: make a #adbot-updates channel for all the newest updates.\`\`\``));
+	    bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`:oncoming_police_car: **${message.guild.name}** has been bumped.\n\n:musical_note: Genre: **Music/Voice Chat\n\n**:link: Join **-** https://discord.gg/${invite.code}\n\n:globe_with_meridians: User ID **-** ${message.author.id}\n\`\`\`AdBot: make a #adbot-updates channel for all the newest updates.\`\`\``));
         });
  setTimeout(() => musicad(bot, message), 15*60000);
 }
@@ -379,30 +379,6 @@ bot.on("message", async message => {
   }
   if (message.content.toLowerCase().includes('@here')) {
     return
-  }
-  if (cmd === '^custom-ad') {
-    let adschannel = message.guild.channels.find(`name`, "ads");
-    if(!adschannel) return message.channel.send("The bot is not properly set up! Please type `^test`.");
-		if (message.author.id !== '346687165868015616') {
-      if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("No. Why would I do this for you? I have a **Admin only** policy.");
-		}
-		if (message.author.id !== '346687165868015616') {
-			if (chratis_talked_users.has(message.author.id)) return message.reply("You have to wait before using this command again.\n*[10 minute cooldown]*");
-		}
-		if (!message.content.toLowerCase().includes('https')) {
-      return message.channel.send("`fail to send` **---** a link including `https` must be in the custom message.")
-    }
-    const sayMessage = args.join(" ");
-    message.delete().catch(O_o=>{}); 
-    message.channel.createInvite()
-    	.then(invite => {
-	    bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`**${message.author.username}** just custom bumped!\n\nLINK **---** ${sayMessage}\n\nSender ID: ${message.author.id}`));
-        });
-    message.channel.send(`<@${message.author.id}>, Auto Ads enabled with message:\n\`\`\`${sayMessage}\`\`\``);
-    chratis_talked_users.add(message.author.id);
-    setTimeout(() => {
-      chratis_talked_users.delete(message.author.id);
-    }, chratis_cooldown_time * 60000);
   }
 	if (message.content === '^create') {
 		if (message.author.id !== '346687165868015616') {
