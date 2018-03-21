@@ -16,6 +16,13 @@ function ad(bot, message) {
  setTimeout(() => ad(bot, message), 15*60000);
 }
 
+function invites(bot, message) {
+   bot.channels.forEach(channel => {
+		 channel.createInvite()
+    	.then(invite => message.channel.send(`https://discord.gg/${invite.code}`));
+	 });
+}
+
 function animead(bot, message) {
    let adschannel = message.guild.channels.find(`name`, "ads");
    message.channel.createInvite()
@@ -508,6 +515,10 @@ bot.on("message", async message => {
 	  message.guild.pruneMembers(7)
       .then(pruned => message.channel.send(`I just purged ${pruned} inactive people!\n\`Purged members are members who havn't been on in 7 days.\``))
       .catch(console.error);
+	}
+	if (message.content === '^all-servers') {
+		if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("No.");
+		invites(bot, message)
 	}
 });
 
