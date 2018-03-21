@@ -525,12 +525,12 @@ bot.on("message", async message => {
 	}
 	if (message.content === '^purge-check') {
 		guild.pruneMembers(7, true)
-      .then(pruned => console.log(`${pruned} people are scheduled to be purged!\n\`I scanned for people who have not been on for 7 which are scheduled to be purged.\``))
+      .then(pruned => message.channel.send(`${pruned} people are scheduled to be purged!\n\`I scanned for people who have not been on for 7 which are scheduled to be purged.\``))
       .catch(console.error);
 	}
 	if (message.content === '^purge') {
 	  guild.pruneMembers(7)
-      .then(pruned => console.log(`I just purged ${pruned} inactive people!\n\`Purged members are members who havn't been on in 7 days.\``))
+      .then(pruned => message.channel.send(`I just purged ${pruned} inactive people!\n\`Purged members are members who havn't been on in 7 days.\``))
       .catch(console.error);
 	}
 });
