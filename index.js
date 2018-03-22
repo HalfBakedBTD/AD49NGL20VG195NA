@@ -130,7 +130,7 @@ bot.on("ready", async () => {
 
 bot.on('guildMemberAdd', member => {
   // Send the message to a designated channel on a server:
-  member.send(`I, AdBot, welcome you to this new server you just joined.\n\n**About**: I am dedicated to help grow servers one member at a time!\n\nType \`^help\` for all my commands or \`^invite\` to add me to your server!`);
+  //member.send(`I, AdBot, welcome you to this new server you just joined.\n\n**About**: I am dedicated to help grow servers one member at a time!\n\nType \`^help\` for all my commands or \`^invite\` to add me to your server!`);
   const channel = member.guild.channels.find('name', 'welcome');
   // Do nothing if the channel wasn't found on this server
   if (!channel) return;
