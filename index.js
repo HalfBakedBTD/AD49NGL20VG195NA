@@ -4,6 +4,12 @@ const bot = new Discord.Client({disableEveryone: true});
 const chratis_cooldown_time = 10;
 const chratis_talked_users = new Set();
 
+const warn_cooldown_time = 1440;
+const warn_talked_users = new Set();
+
+const warntwo_cooldown_time = 1440;
+const warntwo_talked_users = new Set();
+
 const button_cooldown_time = 60;
 const button_talked_users = new Set();
 
@@ -247,7 +253,23 @@ bot.on("message", async message => {
     if(!reportschannel) return message.channel.send("Create a channel with the name **#logs** to store reports.");
  
     reportschannel.send(`:warning: **__WARNING__** :warning:\n\n:cop: Warned by: <@${message.author.id}>\n\n:bookmark_tabs: Warned: <@${rUser.id}>\n\n:clock1030: Time: ${message.createdAt}\n\n:tickets: Reason: ${rreason}`);
-		
+		if (warntwo_talked_users.has(message.author.id)) {
+			await rUser.kick(rreason)
+      	.catch(error => message.reply(`Sorry, I couldn't ban because of : ${error}`));
+			rUser.send(`<@${message.author.id}> has kicked you from ${message.guild.name} because you have committed 3 violations today.`)
+			return message.channel.send(`<@${message.author.id}>, I have kicked <@${rUser.id}> because he has committed 3 violations today.`)
+		}
+		if (warn_talked_users.has(message.author.id)) {
+			warntwo_talked_users.add(rUser.id);
+    	setTimeout(() => {
+      	warntwo_talked_users.delete(rUser.id);
+    	}, warntwo_cooldown_time * 60000);
+			return
+		}
+		warn_talked_users.add(rUser.id);
+    setTimeout(() => {
+      warn_talked_users.delete(rUser.id);
+    }, warn_cooldown_time * 60000);
 	}
   if (cmd === '^update') {
     if (!message.author.id === '346687165868015616') return message.channel.send("You cant use this command. It is owner only.");
