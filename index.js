@@ -244,7 +244,7 @@ bot.on("message", async message => {
     if(!reportschannel) return message.channel.send("Couldn't find logs channel. A channel with the name **#logs** is required for this command.");
 
     message.delete().catch(O_o=>{});
-    reportschannel.send(`:warning: **__WARNING__** :warning:\n\n:cop: Warned by: <@${message.author.id}>\n\n:bookmark_tabs: Warned: <@${rUser.id}>\n\n`);
+    reportschannel.send(`:warning: **__WARNING__** :warning:\n\n:cop: Warned by: <@${message.author.id}>\n\n:bookmark_tabs: Warned: <@${rUser.id}>\n\n:clock1030: Time: ${message.createdAt}\n\n:tickets: Reason: ${rreason}`);
 	}
   if (cmd === '^update') {
     if (!message.author.id === '346687165868015616') return message.channel.send("You cant use this command. It is owner only.");
