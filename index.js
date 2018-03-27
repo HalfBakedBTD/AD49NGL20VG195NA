@@ -226,6 +226,26 @@ bot.on("message", async message => {
 	if (message.content === '^genres') {
 		return message.channel.send(`<@${message.author.id}> here are my genres:\n\t\t\`anime\`\n\t\t\`comedy\`\n\t\t\`drama\`\n\t\t\`programming\`\n\t\t\`music\`\n\t\t\`gaming\`\n\nYou can use it like: \`^ad <genre>\``)	
 	}
+	if (message.content.startsWith('^warn')) {
+		let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    if(!rUser) return message.channel.send("Couldn't find user.");
+    let rreason = args.join(" ").slice(22);
+		
+    //let reportEmbed = new Discord.RichEmbed()
+    //.setDescription("Reports")
+    //.setColor("#15f153")
+    //.addField("Reported User", `${rUser} with ID: ${rUser.id}`)
+    //.addField("Reported By", `${message.author} with ID: ${message.author.id}`)
+    //.addField("Channel", message.channel)
+    //.addField("Time", message.createdAt)
+    //.addField("Reason", rreason);
+
+    let reportschannel = message.guild.channels.find(`name`, "logs");
+    if(!reportschannel) return message.channel.send("Couldn't find logs channel. A channel with the name **#logs** is required for this command.");
+
+    message.delete().catch(O_o=>{});
+    reportschannel.send(`:warning: **__WARNING__** :warning:\n\n:cop: Warned by: <@${message.author.id}>\n\n:bookmark_tabs: Warned: <@${rUser.id}>\n\n`);
+	}
   if (cmd === '^update') {
     if (!message.author.id === '346687165868015616') return message.channel.send("You cant use this command. It is owner only.");
     let adsupchannel = message.guild.channels.find(`name`, "adbot-updates");
