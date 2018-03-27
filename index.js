@@ -253,13 +253,13 @@ bot.on("message", async message => {
     if(!reportschannel) return message.channel.send("Create a channel with the name **#logs** to store reports.");
  
     reportschannel.send(`:warning: **__WARNING__** :warning:\n\n:cop: Warned by: <@${message.author.id}>\n\n:bookmark_tabs: Warned: <@${rUser.id}>\n\n:clock1030: Time: ${message.createdAt}\n\n:tickets: Reason: ${rreason}`);
-		if (warntwo_talked_users.has(message.author.id)) {
+		if (warntwo_talked_users.has(rUser.id)) {
 			await rUser.kick(rreason)
       	.catch(error => message.reply(`Sorry, I couldn't ban because of : ${error}`));
 			rUser.send(`<@${message.author.id}> has kicked you from ${message.guild.name} because you have committed 3 violations today.`)
 			return message.channel.send(`<@${message.author.id}>, I have kicked <@${rUser.id}> because he has committed 3 violations today.`)
 		}
-		if (warn_talked_users.has(message.author.id)) {
+		if (warn_talked_users.has(rUser.id)) {
 			warntwo_talked_users.add(rUser.id);
     	setTimeout(() => {
       	warntwo_talked_users.delete(rUser.id);
