@@ -35,8 +35,8 @@ function twitch(bot, message, args) {
 function you(bot, message, args) {
    let adschannel = message.guild.channels.find(`name`, "ads");
 	 const sayMessage = args.join(" ");
-	 bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`:oncoming_police_car: **${message.guild.name}** has been bumped.\n\n:notepad_spiral: Genre: **Twitch\n\n**🐦 Subscribe **-** https://www.youtube.com/channel/${sayMessage}\n\n:globe_with_meridians: User ID **-** ${message.author.id}\n\`\`\`AdBot: make a #adbot-updates channel for all the newest updates.\`\`\``));
- setTimeout(() => twitch(bot, message, args), 30*60000);
+	 bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`:oncoming_police_car: **${message.guild.name}** has been bumped.\n\n:notepad_spiral: Genre: **YouTube\n\n**🐦 Subscribe **-** https://www.youtube.com/channel/${sayMessage}\n\n:globe_with_meridians: User ID **-** ${message.author.id}\n\`\`\`AdBot: make a #adbot-updates channel for all the newest updates.\`\`\``));
+ setTimeout(() => you(bot, message, args), 30*60000);
 }
 
 function invites(bot, message) {
@@ -354,7 +354,7 @@ bot.on("message", async message => {
 		  if (twitch_talked_users.has(message.author.id)) return message.reply("You can only advertise one social media an hour!");
 		}
 	  twitch(bot, message, args)
-		message.channel.send("`Twitch ads have been enabled!`")
+		message.channel.send("`Twitch ads have been enabled! Please check #ads to make sure it looks right.`")
     twitch_talked_users.add(message.author.id);
     setTimeout(() => {
       twitch_talked_users.delete(message.author.id);
@@ -373,7 +373,7 @@ bot.on("message", async message => {
 		  if (twitch_talked_users.has(message.author.id)) return message.reply("You can only advertise one social media an hour!");
 		}
 	  you(bot, message, args)
-		message.channel.send("`Twitch ads have been enabled!`")
+		message.channel.send("`YouTube ads have been enabled! Please check #ads to make sure it looks right.`")
     twitch_talked_users.add(message.author.id);
     setTimeout(() => {
       twitch_talked_users.delete(message.author.id);
