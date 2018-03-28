@@ -28,7 +28,7 @@ function ad(bot, message) {
 function twitch(bot, message, args) {
    let adschannel = message.guild.channels.find(`name`, "ads");
 	 const sayMessage = args.join(" ");
-	 bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`:oncoming_police_car: **${message.guild.name}** has been bumped.\n\n:notepad_spiral: Genre: **Not Set\n\n**💜 Follow **-** https://www.twitch.tv/${sayMessage}\n\n:globe_with_meridians: User ID **-** ${message.author.id}\n\`\`\`AdBot: make a #adbot-updates channel for all the newest updates.\`\`\``));        });
+	 bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`:oncoming_police_car: **${message.guild.name}** has been bumped.\n\n:notepad_spiral: Genre: **Not Set\n\n**💜 Follow **-** https://www.twitch.tv/${sayMessage}\n\n:globe_with_meridians: User ID **-** ${message.author.id}\n\`\`\`AdBot: make a #adbot-updates channel for all the newest updates.\`\`\``));
  setTimeout(() => twitch(bot, message, args), 30*60000);
 }
 
