@@ -30,6 +30,13 @@ function twitch(bot, message, args) {
 	 const sayMessage = args.join(" ");
 	 bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`:oncoming_police_car: **${message.guild.name}** has been bumped.\n\n:notepad_spiral: Genre: **Twitch\n\n**💜 Follow **-** https://www.twitch.tv/${sayMessage}\n\n:globe_with_meridians: User ID **-** ${message.author.id}\n\`\`\`AdBot: make a #adbot-updates channel for all the newest updates.\`\`\``));
  setTimeout(() => twitch(bot, message, args), 30*60000);
+} 
+
+function you(bot, message, args) {
+   let adschannel = message.guild.channels.find(`name`, "ads");
+	 const sayMessage = args.join(" ");
+	 bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`:oncoming_police_car: **${message.guild.name}** has been bumped.\n\n:notepad_spiral: Genre: **Twitch\n\n**🐦 Subscribe **-** https://www.youtube.com/channel/${sayMessage}\n\n:globe_with_meridians: User ID **-** ${message.author.id}\n\`\`\`AdBot: make a #adbot-updates channel for all the newest updates.\`\`\``));
+ setTimeout(() => twitch(bot, message, args), 30*60000);
 }
 
 function invites(bot, message) {
@@ -293,10 +300,10 @@ bot.on("message", async message => {
   } 
   if (message.content === '^dmhelp') {
 		message.channel.send(`I have DMed you <@${message.author.id}>`)
-    return message.author.send(`<@${message.author.id}> here is my list of commands:\n:question: **^help** - Shows list of commands in the channel the command is sent in.\n:grey_question: **^dmhelp** - DMs you a list of my commands.\n:closed_book: **^test** - Helps you set up your server.\n:open_file_folder: **^create** - Automaticly sets up your server for you.\n\n:hammer: **^ban** - Bans a member in the server.\n:boot: **^kick** - Kicks a member in the server.\n:recycle: **^recycle** - Clears messages. Equivilent to \`purge\` or \`clear\` on other bots.\n:cloud: **^purge-check** - Checks and tells you how many people will be pruned.\n:thunder_cloud_rain: **^purge** - Prunes members who have been inactive for a week.\n⚠ **^warn** - Warns a member in the server.\n\n:arrow_heading_up: **^ad** - Bumps your server to the top of the advertising slot.\n:stuck_out_tongue_winking_eye: **^emoji** - Adds the AdBot emoji to your server.\n:gear: **^genres** - Displays all current genres the bot has.\n:mailbox: **^info** - Gives various info about AdBot.\n\n:e_mail: **^invite** - Sends you and invite to add AdBot to your server.\n:pizza: **^server** - Links you to AdBot's official server.\n\n\`WARNING\` any NSFW or spam server names will result in ban from using the bot. The ban will include no access to all bot features to ensure no further rule breaking.`)
+    return message.author.send(`<@${message.author.id}> here is my list of commands:\n:question: **^help** - Shows list of commands in the channel the command is sent in.\n:grey_question: **^dmhelp** - DMs you a list of my commands.\n:closed_book: **^test** - Helps you set up your server.\n:open_file_folder: **^create** - Automaticly sets up your server for you.\n\n:hammer: **^ban** - Bans a member in the server.\n:boot: **^kick** - Kicks a member in the server.\n:recycle: **^recycle** - Clears messages. Equivilent to \`purge\` or \`clear\` on other bots.\n:cloud: **^purge-check** - Checks and tells you how many people will be pruned.\n:thunder_cloud_rain: **^purge** - Prunes members who have been inactive for a week.\n⚠ **^warn** - Warns a member in the server.\n\n:arrow_heading_up: **^ad** - Bumps your server to the top of the advertising slot.\n🐦 **^youtube** - advertises youtube channels based on channel IDs.\n💜 **^twitch** - advertises twitch channels based on links.\n:stuck_out_tongue_winking_eye: **^emoji** - Adds the AdBot emoji to your server.\n:gear: **^genres** - Displays all current genres the bot has.\n:mailbox: **^info** - Gives various info about AdBot.\n\n:e_mail: **^invite** - Sends you and invite to add AdBot to your server.\n:pizza: **^server** - Links you to AdBot's official server.\n\n\`WARNING\` any NSFW or spam server names will result in ban from using the bot. The ban will include no access to all bot features to ensure no further rule breaking.`)
   }
 	if (message.content === '^help') {
-    return message.channel.send(`<@${message.author.id}> here is my list of commands:\n:question: **^help** - Shows list of commands in the channel the command is sent in.\n:grey_question: **^dmhelp** - DMs you a list of my commands.\n:closed_book: **^test** - Helps you set up your server.\n:open_file_folder: **^create** - Automaticly sets up your server for you.\n\n:hammer: **^ban** - Bans a member in the server.\n:boot: **^kick** - Kicks a member in the server.\n:recycle: **^recycle** - Clears messages. Equivilent to \`purge\` or \`clear\` on other bots.\n:cloud: **^purge-check** - Checks and tells you how many people will be pruned.\n:thunder_cloud_rain: **^purge** - Prunes members who have been inactive for a week.\n⚠ **^warn** - Warns a member in the server.\n\n:arrow_heading_up: **^ad** - Bumps your server to the top of the advertising slot.\n:stuck_out_tongue_winking_eye: **^emoji** - Adds the AdBot emoji to your server.\n:gear: **^genres** - Displays all current genres the bot has.\n:mailbox: **^info** - Gives various info about AdBot.\n\n:e_mail: **^invite** - Sends you and invite to add AdBot to your server.\n:pizza: **^server** - Links you to AdBot's official server.\n\n\`WARNING\` any NSFW or server spam names will result in ban from using the bot. The ban will include no access to all bot features to ensure no further rule breaking.`)
+    return message.channel.send(`<@${message.author.id}> here is my list of commands:\n:question: **^help** - Shows list of commands in the channel the command is sent in.\n:grey_question: **^dmhelp** - DMs you a list of my commands.\n:closed_book: **^test** - Helps you set up your server.\n:open_file_folder: **^create** - Automaticly sets up your server for you.\n\n:hammer: **^ban** - Bans a member in the server.\n:boot: **^kick** - Kicks a member in the server.\n:recycle: **^recycle** - Clears messages. Equivilent to \`purge\` or \`clear\` on other bots.\n:cloud: **^purge-check** - Checks and tells you how many people will be pruned.\n:thunder_cloud_rain: **^purge** - Prunes members who have been inactive for a week.\n⚠ **^warn** - Warns a member in the server.\n\n:arrow_heading_up: **^ad** - Bumps your server to the top of the advertising slot.\n🐦 **^youtube** - advertises youtube channels based on channel IDs.\n💜 **^twitch** - advertises twitch channels based on links.\n:stuck_out_tongue_winking_eye: **^emoji** - Adds the AdBot emoji to your server.\n:gear: **^genres** - Displays all current genres the bot has.\n:mailbox: **^info** - Gives various info about AdBot.\n\n:e_mail: **^invite** - Sends you and invite to add AdBot to your server.\n:pizza: **^server** - Links you to AdBot's official server.\n\n\`WARNING\` any NSFW or server spam names will result in ban from using the bot. The ban will include no access to all bot features to ensure no further rule breaking.`)
   }
   if (message.content === '^invite') {
     message.channel.send("I DMed you a link to add me to your server!")
@@ -334,6 +341,9 @@ bot.on("message", async message => {
       chratis_talked_users.delete(message.author.id);
     }, chratis_cooldown_time * 60000);
   }
+	if (message.content === '^twitch') {
+		return message.channel.send(`<@${message.author.id}> you have to add the channel name. Example: \`^twitch sirhalfbaked\`.`)
+	}
 	if (message.content.startsWith('^twitch ')) {
 		let adschannel = message.guild.channels.find(`name`, "ads");
     if(!adschannel) return message.channel.send("The bot is not properly set up for this command! Please type `^test`.");
@@ -341,9 +351,28 @@ bot.on("message", async message => {
       if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("No. Why would I do this for you? I have a **Admin only** policy.");
 		}
 		if (message.author.id !== '346687165868015616') {
-		  if (twitch_talked_users.has(message.author.id)) return message.reply("You have to wait before using this command again.\n*[10 min cooldown]*");
+		  if (twitch_talked_users.has(message.author.id)) return message.reply("You can only advertise one social media an hour!");
 		}
 	  twitch(bot, message, args)
+		message.channel.send("`Twitch ads have been enabled!`")
+    twitch_talked_users.add(message.author.id);
+    setTimeout(() => {
+      twitch_talked_users.delete(message.author.id);
+    }, twitch_cooldown_time * 60000);
+  }
+	if (message.content === '^youtube') {
+		return message.channel.send(`<@${message.author.id}> you have to add the channel ID. Example: \`^youtube UCMOG39q8MQdsXAkYrPcaynA\`.`)
+	}
+	if (message.content.startsWith('^youtube ')) {
+		let adschannel = message.guild.channels.find(`name`, "ads");
+    if(!adschannel) return message.channel.send("The bot is not properly set up for this command! Please type `^test`.");
+		if (message.author.id !== '346687165868015616') {
+      if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("No. Why would I do this for you? I have a **Admin only** policy.");
+		}
+		if (message.author.id !== '346687165868015616') {
+		  if (twitch_talked_users.has(message.author.id)) return message.reply("You can only advertise one social media an hour!");
+		}
+	  you(bot, message, args)
 		message.channel.send("`Twitch ads have been enabled!`")
     twitch_talked_users.add(message.author.id);
     setTimeout(() => {
