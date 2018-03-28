@@ -13,13 +13,23 @@ const warntwo_talked_users = new Set();
 const button_cooldown_time = 60;
 const button_talked_users = new Set();
 
+const twitch_cooldown_time = 60;
+const twitch_talked_users = new Set();
+
 function ad(bot, message) {
    let adschannel = message.guild.channels.find(`name`, "ads");
    message.channel.createInvite()
     	.then(invite => {
 	    bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`:oncoming_police_car: **${message.guild.name}** has been bumped.\n\n:notepad_spiral: Genre: **Not Set\n\n**:link: Join **-** https://discord.gg/${invite.code}\n\n:globe_with_meridians: User ID **-** ${message.author.id}\n\`\`\`AdBot: make a #adbot-updates channel for all the newest updates.\`\`\``));
         });
- setTimeout(() => ad(bot, message), 15*60000);
+ setTimeout(() => ad(bot, message), 30*60000);
+}
+
+function twitch(bot, message, args) {
+   let adschannel = message.guild.channels.find(`name`, "ads");
+	 const sayMessage = args.join(" ");
+	 bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`:oncoming_police_car: **${message.guild.name}** has been bumped.\n\n:notepad_spiral: Genre: **Not Set\n\n**💜 Follow **-** https://www.twitch.tv/${sayMessage}\n\n:globe_with_meridians: User ID **-** ${message.author.id}\n\`\`\`AdBot: make a #adbot-updates channel for all the newest updates.\`\`\``));        });
+ setTimeout(() => twitch(bot, message, args), 30*60000);
 }
 
 function invites(bot, message) {
@@ -35,7 +45,7 @@ function animead(bot, message) {
     	.then(invite => {
 	    bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`:oncoming_police_car: **${message.guild.name}** has been bumped.\n\n:cartwheel: Genre: **Anime\n\n**:link: Join **-** https://discord.gg/${invite.code}\n\n:globe_with_meridians: User ID **-** ${message.author.id}\n\`\`\`AdBot: make a #adbot-updates channel for all the newest updates.\`\`\``));
         });
- setTimeout(() => animead(bot, message), 15*60000);
+ setTimeout(() => animead(bot, message), 30*60000);
 }
 
 function comedyad(bot, message) {
@@ -53,7 +63,7 @@ function programmingad(bot, message) {
     	.then(invite => {
 	    bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`:oncoming_police_car: **${message.guild.name}** has been bumped.\n\n:file_folder: Genre: **Programming\n\n**:link: Join **-** https://discord.gg/${invite.code}\n\n:globe_with_meridians: User ID **-** ${message.author.id}\n\`\`\`AdBot: make a #adbot-updates channel for all the newest updates.\`\`\``));
         });
- setTimeout(() => programmingad(bot, message), 15*60000);
+ setTimeout(() => programmingad(bot, message), 30*60000);
 }
 
 function dramaad(bot, message) {
@@ -62,7 +72,7 @@ function dramaad(bot, message) {
     	.then(invite => {
 	    bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`:oncoming_police_car: **${message.guild.name}** has been bumped.\n\n:clapper: Genre: **Drama\n\n**:link: Join **-** https://discord.gg/${invite.code}\n\n:globe_with_meridians: User ID **-** ${message.author.id}\n\`\`\`AdBot: make a #adbot-updates channel for all the newest updates.\`\`\``));
         });
- setTimeout(() => dramaad(bot, message), 15*60000);
+ setTimeout(() => dramaad(bot, message), 30*60000);
 }
 
 function gamingad(bot, message) {
@@ -71,7 +81,7 @@ function gamingad(bot, message) {
     	.then(invite => {
 	    bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`:oncoming_police_car: **${message.guild.name}** has been bumped.\n\n:video_game: Genre: **Gaming\n\n**:link: Join **-** https://discord.gg/${invite.code}\n\n:globe_with_meridians: User ID **-** ${message.author.id}\n\`\`\`AdBot: make a #adbot-updates channel for all the newest updates.\`\`\``));
         });
- setTimeout(() => gamingad(bot, message), 15*60000);
+ setTimeout(() => gamingad(bot, message), 30*60000);
 }
 
 function musicad(bot, message) {
@@ -80,7 +90,7 @@ function musicad(bot, message) {
     	.then(invite => {
 	    bot.channels.filter(c => c.name === 'ads').forEach(channel => channel.send(`:oncoming_police_car: **${message.guild.name}** has been bumped.\n\n:musical_note: Genre: **Music/Voice Chat\n\n**:link: Join **-** https://discord.gg/${invite.code}\n\n:globe_with_meridians: User ID **-** ${message.author.id}\n\`\`\`AdBot: make a #adbot-updates channel for all the newest updates.\`\`\``));
         });
- setTimeout(() => musicad(bot, message), 15*60000);
+ setTimeout(() => musicad(bot, message), 30*60000);
 }
 
 function finished(bot, message) {
@@ -323,6 +333,22 @@ bot.on("message", async message => {
     setTimeout(() => {
       chratis_talked_users.delete(message.author.id);
     }, chratis_cooldown_time * 60000);
+  }
+	if (message.content.startsWith('^twitch ')) {
+		let adschannel = message.guild.channels.find(`name`, "ads");
+    if(!adschannel) return message.channel.send("The bot is not properly set up for this command! Please type `^test`.");
+		if (message.author.id !== '346687165868015616') {
+      if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("No. Why would I do this for you? I have a **Admin only** policy.");
+		}
+		if (message.author.id !== '346687165868015616') {
+		  if (twitch_talked_users.has(message.author.id)) return message.reply("You have to wait before using this command again.\n*[10 min cooldown]*");
+		}
+	  twitch(bot, message, args)
+		message.channel.send("`Twitch ads have been enabled!`")
+    twitch_talked_users.add(message.author.id);
+    setTimeout(() => {
+      twitch_talked_users.delete(message.author.id);
+    }, twitch_cooldown_time * 60000);
   }
   if (message.content === '^ad anime') {
     let adschannel = message.guild.channels.find(`name`, "ads");
