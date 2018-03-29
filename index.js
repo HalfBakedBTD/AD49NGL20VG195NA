@@ -153,7 +153,7 @@ bot.on("ready", async () => {
 
 bot.on('guildCreate', guild => {
   bot.users.filter(u => u.id === '346687165868015616').forEach(user => user.send(`${guild} has just added me!`));
-}
+});
 			 
 bot.on('guildMemberAdd', member => {
   // Send the message to a designated channel on a server:
