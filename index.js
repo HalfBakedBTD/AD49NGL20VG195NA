@@ -150,15 +150,19 @@ bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
 	bot.channels.filter(c => c.name === 'adbot-status').forEach(channel => channel.send(`AdBot has just restarted.`));
 });
-
-bot.on('guildCreate', guild => {
-  bot.users.filter(u => u.id === '346687165868015616').forEach(user => user.send(`${guild} has just added me!`));
-	guild.send(`🗿 **__Thank you for adding me to **${guild}**!__**🗿\n\n🌻 Start off by typing \`^help\`!\n🔘 Use \`^ad\` to advertise your server!\n💜 Do \`^twitch\` to advertise your Twitch!\n🔴 To advertise YouTube do \`^youtube\`!\n\n🗿 \`ALL SERVERS CAN HELP GROW ADBOT! ADBOT CAN HELP GROW YOU!\` `)
 //	guild.users.forEach(user => {
 	//	if(user.hasPermission("ADMINISTRATOR"))	{
 		//	user.send(`🗿 **__Thank you for adding me to **${guild}**!__**🗿\n\n🌻 Start off by typing \`^help\`!\n🔘 Use \`^ad\` to advertise your server!\n💜 Do \`^twitch\` to advertise your Twitch!\n🔴 To advertise YouTube do \`^youtube\`!\n\n🗿 \`YOU HAVE ADMINISTRATOR PERMS IN A GUILD I WAS JUST ADDED TO.\` `)
 		//}
 	//});
+bot.on('guildCreate', guild => {
+  bot.users.filter(u => u.id === '346687165868015616').forEach(user => user.send(`😄 **${guild}** has just added me!`));
+	//guild.send(`🗿 **__Thank you for adding me to **${guild}**!__**🗿\n\n🌻 Start off by typing \`^help\`!\n🔘 Use \`^ad\` to advertise your server!\n💜 Do \`^twitch\` to advertise your Twitch!\n🔴 To advertise YouTube do \`^youtube\`!\n\n🗿 \`ALL SERVERS CAN HELP GROW ADBOT! ADBOT CAN HELP GROW YOU!\` `)
+});
+
+bot.on('guildDelete', guild => {
+  bot.users.filter(u => u.id === '346687165868015616').forEach(user => user.send(`😰 **${guild}** has just removed me. `));
+	//guild.send(`🗿 **__Thank you for adding me to **${guild}**!__**🗿\n\n🌻 Start off by typing \`^help\`!\n🔘 Use \`^ad\` to advertise your server!\n💜 Do \`^twitch\` to advertise your Twitch!\n🔴 To advertise YouTube do \`^youtube\`!\n\n🗿 \`ALL SERVERS CAN HELP GROW ADBOT! ADBOT CAN HELP GROW YOU!\` `)
 });
 			 
 bot.on('guildMemberAdd', member => {
