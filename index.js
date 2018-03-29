@@ -157,7 +157,12 @@ bot.on("ready", async () => {
 	//});
 bot.on('guildCreate', guild => {
   bot.users.filter(u => u.id === '346687165868015616').forEach(user => user.send(`😄 **${guild}** has just added me!`));
-	guild.defaultChannel.send(`🗿 **__Thank you for adding me to **${guild}**!__**🗿\n\n🌻 Start off by typing \`^help\`!\n🔘 Use \`^ad\` to advertise your server!\n💜 Do \`^twitch\` to advertise your Twitch!\n🔴 To advertise YouTube do \`^youtube\`!\n\n🗿 \`ALL SERVERS CAN HELP GROW ADBOT! ADBOT CAN HELP GROW YOU!\` `)
+	message.guild.createChannel('adbot-welcome-message', 'text')
+      .then(console.log)
+      .catch(console.error);
+	let joinchannel = guild.channels.find(`name`, "adbot-welcome-message");
+	if (!joinchannel) return
+	joinchannel.send(`🗿 **__Thank you for adding me to **${guild}**!__**🗿\n\n🌻 Start off by typing \`^help\`!\n🔘 Use \`^ad\` to advertise your server!\n💜 Do \`^twitch\` to advertise your Twitch!\n🔴 To advertise YouTube do \`^youtube\`!\n\n🗿 When you finish reading this message, type \`^kk\` to delete this channel. 🗿`)
 });
 
 bot.on('guildDelete', guild => {
@@ -638,6 +643,14 @@ bot.on("message", async message => {
 	if (message.content === '^all-servers') {
 		if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("No.");
 		invites(bot, message)
+	}
+	if (message.content === '^kk') {
+		bot.channels.filter(c => c.name === 'nuked').forEach(channel => {
+		  channel.delete()
+  			.then(console.log)
+  			.catch(console.error);
+		});
+		return message.channel.send(`\`All AdBot welcome channels are deleted.\``)
 	}
 });
 
