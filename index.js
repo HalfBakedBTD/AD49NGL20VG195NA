@@ -157,7 +157,7 @@ bot.on("ready", async () => {
 	//});
 bot.on('guildCreate', guild => {
   bot.users.filter(u => u.id === '346687165868015616').forEach(user => user.send(`😄 **${guild}** has just added me!`));
-	message.guild.createChannel('adbot-welcome-message', 'text')
+	guild.createChannel('adbot-welcome-message', 'text')
       .then(console.log)
       .catch(console.error);
 	let joinchannel = guild.channels.find(`name`, "adbot-welcome-message");
