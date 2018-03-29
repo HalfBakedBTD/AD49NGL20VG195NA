@@ -159,8 +159,7 @@ bot.on('guildCreate', guild => {
   bot.users.filter(u => u.id === '346687165868015616').forEach(user => user.send(`😄 **${guild}** has just added me!`));
 	guild.createChannel('adbot-welcome-message', 'text')
       .then(console.log)
-      .catch(console.error);
-	await guild.channels.find(`name`, "adbot-welcome-message");
+      .catch(console.error);	
 	let joinchannel = guild.channels.find(`name`, "adbot-welcome-message");
 	if (!joinchannel) return
 	joinchannel.send(`🗿 **__Thank you for adding me to **${guild}**!__**🗿\n\n🌻 Start off by typing \`^help\`!\n🔘 Use \`^ad\` to advertise your server!\n💜 Do \`^twitch\` to advertise your Twitch!\n🔴 To advertise YouTube do \`^youtube\`!\n\n🗿 When you finish reading this message, type \`^kk\` to delete this channel. 🗿`)
