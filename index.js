@@ -250,6 +250,9 @@ bot.on("message", async message => {
 		return message.channel.send(`<@${message.author.id}> here are my genres:\n\t\t\`anime\`\n\t\t\`comedy\`\n\t\t\`drama\`\n\t\t\`programming\`\n\t\t\`music\`\n\t\t\`gaming\`\n\nYou can use it like: \`^ad <genre>\``)	
 	}
 	if (message.content.startsWith('^warn')) {
+		if (message.author.id !== '346687165868015616') {
+      if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("No. Why would I do this for you? I have a **Admin only** policy.");
+		}
 		let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!rUser) return message.channel.send("Couldn't find user.");
     let rreason = args.join(" ").slice(22);
@@ -598,7 +601,9 @@ bot.on("message", async message => {
 	}
 	if (message.content.startsWith('^recycle')) {
 		let logschannel = message.guild.channels.find('name', 'logs');
-		if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("No. Why would I purge for you?");
+		if (message.author.id !== '346687165868015616') {
+      if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("No. Why would I purge for you?");
+		}
   	if(!args[0]) return message.channel.send(`:page_facing_up: **Info** - This command is used to clear messages.\n\n:dividers: Use - \`^recycle <number of messages to purge>\`\n\n:ice_cream: Example - \`^recycle 8\``);
   	message.channel.bulkDelete(args[0]).then(() => {
 			message.channel.send(`**__Cleared ${args[0]} messages.__**`).then(msg => msg.delete(8000));
