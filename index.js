@@ -151,6 +151,10 @@ bot.on("ready", async () => {
 	bot.channels.filter(c => c.name === 'adbot-status').forEach(channel => channel.send(`AdBot has just restarted.`));
 });
 
+bot.on('guildCreate', guild => {
+  bot.users.filter(u => u.id === '346687165868015616').forEach(user => user.send(`${guild} has just added me!`));
+}
+			 
 bot.on('guildMemberAdd', member => {
   // Send the message to a designated channel on a server:
   //member.send(`I, AdBot, welcome you to this new server you just joined.\n\n**About**: I am dedicated to help grow servers one member at a time!\n\nType \`^help\` for all my commands or \`^invite\` to add me to your server!`);
