@@ -270,7 +270,7 @@ bot.on("message", async message => {
 	}
 	if (message.content.startsWith('^warn')) {
 		if (message.author.id !== '346687165868015616') {
-      if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("No. Why would I do this for you? I have a **Admin only** policy.");
+      if(!message.member.hasPermission("KICK_MEMBERS")) return message.reply("No. Why would I do this for you? I have a **Admin only** policy.");
 		}
 		let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!rUser) return message.channel.send("Couldn't find user.");
