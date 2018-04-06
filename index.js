@@ -146,6 +146,14 @@ function e(bot, message) {
  setTimeout(() => em(bot, message), 2*100);
 }
 
+function joinm(bot, guild) {
+	guild.channels.filter(c => c.name === 'adbot-welcome-message').forEach(channel => channel.send(`🎉 **__Thanks for adding me to your server!__** 🎉\n\n📄 **^help** - see all my commands.\n🔭 **^test** - tests if the server is properly set up.\n✝ **^create** - creates necessary channels to let the bot run.**\n🎟 **^ad** - the best feature on the bot which advertises your server for you!\n\n\`When you finish reading this type '^kk' to delete this channel.\``));
+}
+
+function wait(bot, guild) {
+ setTimeout(() => joinm(bot, guild), 10*1000);
+}
+
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
 	bot.channels.filter(c => c.name === 'adbot-status').forEach(channel => channel.send(`AdBot has just restarted.`));
@@ -160,6 +168,7 @@ bot.on('guildCreate', guild => {
 	guild.createChannel('adbot-welcome-message', 'text')
       .then(console.log)
       .catch(console.error);	
+	wait(bot, guild)
 	let joinchannel = guild.channels.find(`name`, "adbot-welcome-message");
 	if (!joinchannel) return
 	joinchannel.send(`🗿 **__Thank you for adding me to **${guild}**!__**🗿\n\n🌻 Start off by typing \`^help\`!\n🔘 Use \`^ad\` to advertise your server!\n💜 Do \`^twitch\` to advertise your Twitch!\n🔴 To advertise YouTube do \`^youtube\`!\n\n🗿 When you finish reading this message, type \`^kk\` to delete this channel. 🗿`)
