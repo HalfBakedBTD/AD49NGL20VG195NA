@@ -147,7 +147,7 @@ function e(bot, message) {
 }
 
 function joinm(bot, guild) {
-	guild.channels.filter(c => c.name === 'adbot-welcome-message').forEach(channel => channel.send(`🎉 **__Thanks for adding me to your server!__** 🎉\n\n📄 **^help** - see all my commands.\n🔭 **^test** - tests if the server is properly set up.\n✝ **^create** - creates necessary channels to let the bot run.**\n🎟 **^ad** - the best feature on the bot which advertises your server for you!\n\n\`When you finish reading this type '^kk' to delete this channel.\``));
+	guild.channels.filter(c => c.name === 'adbot-welcome-message').forEach(channel => channel.send(`🎉 **__Thanks for adding me to your server!__** 🎉\n\n📄 **^help** - see all my commands.\n🔭 **^test** - tests if the server is properly set up.\n✝ **^create** - creates necessary channels to let the bot run.\n🎟 **^ad** - the best feature on the bot which advertises your server for you!\n\n\`When you finish reading this type '^kk' to delete this channel.\``));
 }
 
 function wait(bot, guild) {
@@ -654,13 +654,14 @@ bot.on("message", async message => {
 		invites(bot, message)
 	}
 	if (message.content === '^kk') {
-		bot.channels.filter(c => c.name === 'adbot-welcome-message').forEach(channel => {
+		message.guild.channels.filter(c => c.name === 'adbot-welcome-message').forEach(channel => {
 		  channel.delete()
   			.then(console.log)
   			.catch(console.error);
 		});
 		return message.channel.send(`\`All AdBot welcome channels are deleted.\``)
 	}
+	
 });
 
 //Ik5KSLzA6C
