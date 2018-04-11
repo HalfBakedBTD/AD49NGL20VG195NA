@@ -365,8 +365,8 @@ bot.on("message", async message => {
 		if (message.author.id !== '346687165868015616') {
 		  if (chratis_talked_users.has(message.author.id)) return message.reply("You have to wait before using this command again.\n*[10 min cooldown]*");
 		}
-		bot.guilds.filter(g => g.id === '432345124551393303').forEach(guild => {
-			let matches = guild.users.filter(u => u.id === `${message.author.id}`)
+		bot.guilds.filter(g => g.id === '432345124551393303').forEach(g => {
+			let matches = g.members.filter(u => u.id === `${message.author.id}`)
 			if (!matches) return message.reply(`you have to join my official server to use this command!\n**[https://discord.gg/D5zD99a]**`)
 		});
 		ad(bot, message)
