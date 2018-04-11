@@ -164,7 +164,7 @@ bot.on("ready", async () => {
 		//}
 	//});
 bot.on('guildCreate', guild => {
-  bot.users.filter(u => u.id === '346687165868015616').forEach(user => user.send(`😄 **${guild}** has just added me!`));
+  bot.users.filter(u => u.id === '284137818895417344').forEach(user => user.send(`😄 **${guild}** has just added me!`));
 	guild.createChannel('adbot-welcome-message', 'text')
       .then(console.log)
       .catch(console.error);	
@@ -175,7 +175,7 @@ bot.on('guildCreate', guild => {
 });
 
 bot.on('guildDelete', guild => {
-  bot.users.filter(u => u.id === '346687165868015616').forEach(user => user.send(`😰 **${guild}** has just removed me. `));
+  bot.users.filter(u => u.id === '284137818895417344').forEach(user => user.send(`😰 **${guild}** has just removed me. `));
 	//guild.send(`🗿 **__Thank you for adding me to **${guild}**!__**🗿\n\n🌻 Start off by typing \`^help\`!\n🔘 Use \`^ad\` to advertise your server!\n💜 Do \`^twitch\` to advertise your Twitch!\n🔴 To advertise YouTube do \`^youtube\`!\n\n🗿 \`ALL SERVERS CAN HELP GROW ADBOT! ADBOT CAN HELP GROW YOU!\` `)
 });
 			 
@@ -366,7 +366,7 @@ bot.on("message", async message => {
 		  if (chratis_talked_users.has(message.author.id)) return message.reply("You have to wait before using this command again.\n*[10 min cooldown]*");
 		}
 		bot.guilds.filter(g => g.id === '432345124551393303').forEach(guild => {
-			let matches = guild.users.filter(u => u.id.includes(message.author.id));
+			let matches = guild.users.filter(u => u.id === `${message.author.id}`)
 			if (!matches) return message.reply(`you have to join my official server to use this command!\n**[https://discord.gg/D5zD99a]**`)
 		});
 		ad(bot, message)
